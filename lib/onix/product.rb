@@ -1,15 +1,28 @@
 module ONIX
   class Product < Base
+
+    attr_reader :node
+
     def initialize(node = nil)
       if node.kind_of? XML::Node
         @node = node
       else
-        @node = XML::Node.new
+        @node = XML::Node.new("Product")
       end 
     end
 
     def record_reference
       text_content '//Product/RecordReference'
+    end
+
+    def record_reference=(val)
+      if node = @node.find_first('//Product/RecordReference')
+        node.content = val
+      else
+        node = XML::New.new("RecordReference")
+        node.content = val
+        @node << node
+      end
     end
 
     def notification_type

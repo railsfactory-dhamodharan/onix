@@ -10,11 +10,12 @@ puts "From Company: #{reader.header.from_company}"
 puts "From Person: #{reader.header.from_person}"
 
 reader.each do |prod|
-  puts
   puts prod.notification_type
   puts prod.isbn10
   puts prod.isbn13
   puts prod.product_form
+
+  puts
 end
 
 puts
