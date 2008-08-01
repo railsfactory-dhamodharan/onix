@@ -1,31 +1,46 @@
 module ONIX
-  class Header
-    include XML::Mapping
+  class Header < Base
+    def initialize(node = nil)
+      if node.kind_of? XML::Node
+        @node = node
+      else
+        @node = XML::Node.new
+      end 
+    end
 
-    root_element_name "Header"
+    def from_company
+      text_content '//Header/FromCompany'
+    end
 
-    text_node  :sender_ean_number,    "SenderEANNumber", :optional => true
-    text_node  :from_san,             "FromSAN", :optional => true
-    array_node :sender_identifiers,   "SenderIdentifier", :optional => true, :class => ONIX::SenderIdentifier
-    text_node  :from_company,         "FromCompany", :optional => true
-    text_node  :from_person,          "FromPerson", :optional => true
-    text_node  :from_email,           "FromEmail", :optional => true
-    text_node  :to_ean_number,        "ToEANNumber", :optional => true
-    text_node  :to_san,               "ToSAN", :optional => true
-    array_node :addressee_identifier, "AddresseeIdentifier", :optional => true, :class => ONIX::AddresseeIdentifier
-    text_node  :to_company,           "ToCompany", :optional => true
-    text_node  :to_person,            "ToPerson", :optional => true
-    text_node  :message_number,       "MessageNumber", :optional => true
-    text_node  :message_repeat,       "MessageRepeat", :optional => true
-    date_node  :sent_date,            "SentDate", :optional => true
-    text_node  :message_note,         "MessageNote", :optional => true
+    def from_email
+      text_content '//Header/FromEmail'
+    end
 
-    # defaults
-    text_node  :default_language_of_text, "DefaultLanguageOfText", :optional => true
-    text_node  :default_price_type_code,  "DefaultPriceTypeCode",  :optional => true
-    text_node  :default_currency_code,    "DefaultCurrencyCode",   :optional => true
-    text_node  :default_linear_unit,      "DefaultLinearUnit",     :optional => true   # TODO deprecated. make read only
-    text_node  :default_weight_unit,      "DefaultWeightUnit",     :optional => true   # TODO deprecated. make read only
-    text_node  :default_class_of_trade,   "DefaultClassOfTrade",   :optional => true
+    def from_person
+      text_content '//Header/FromPerson'
+    end
+
+    def message_note
+      text_content '//Header/MessageNote'
+    end
+
+    def sent_date
+      text_content '//Header/SentDate'
+    end
+
+    def to_company
+      text_content '//Header/ToCompany'
+    end
+
+    def to_person
+      text_content '//Header/ToPerson'
+    end
+
+    private
+
+    def text_content(path)
+      n = @node.find_first(path)
+      n ? n.content : nil
+    end
   end
 end

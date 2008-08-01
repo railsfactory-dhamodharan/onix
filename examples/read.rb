@@ -1,14 +1,17 @@
-$LOAD_PATH << File.join(File.dirname(__FILE__), "..","lib")
+BASE_PATH = File.join(File.dirname(__FILE__), "..")
 
+$LOAD_PATH.unshift "#{BASE_PATH}/lib/"
 require 'onix'
 
-filename = File.join(File.dirname(__FILE__), "..","data","jul.xml")
+filename = File.join(BASE_PATH,"data","9780194351898.xml")
+reader = ONIX::Reader.new(filename)
 
-msg = ONIX::Message.load_from_file(filename)
-puts msg.header.inspect
-puts 
-puts "#{msg.products.size} products"
-puts
-msg.products.each do |p|
-  puts p.inspect
+puts "From Company: #{reader.header.from_company}"
+puts "From Person: #{reader.header.from_person}"
+
+reader.each do |prod|
+  puts
+  puts prod.product_form
 end
+
+puts
