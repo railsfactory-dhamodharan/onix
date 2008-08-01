@@ -17,15 +17,15 @@ module ONIX
     end
 
     def isbn10
-      text_content "//Product/ProductIdentifier/ProductIDType[text()='02']//following-sibling::IDValue"
+      text_content "//Product/ProductIdentifier/ProductIDType[text()='02']/../IDValue"
     end
 
     def isbn13
-      text_content "//Product/ProductIdentifier/ProductIDType[text()='15']//following-sibling::IDValue"
+      text_content "//Product/ProductIdentifier/ProductIDType[text()='15']/../IDValue"
     end
 
     def ean
-      text_content "//Product/ProductIdentifier/ProductIDType[text()='03']//following-sibling::IDValue"
+      text_content "//Product/ProductIdentifier/ProductIDType[text()='03']/../IDValue"
     end
 
     def product_form
