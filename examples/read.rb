@@ -11,6 +11,7 @@ puts "From Person: #{reader.header.from_person}"
 
 reader.each do |prod|
   puts
+  puts prod.notification_type
   puts prod.product_form
 end
 

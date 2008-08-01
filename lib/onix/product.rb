@@ -8,6 +8,10 @@ module ONIX
       end 
     end
 
+    def notification_type
+      numeric_content '//Product/NotificationType'
+    end
+
     def product_form
       text_content '//Product/ProductForm'
     end
