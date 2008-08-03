@@ -16,12 +16,12 @@ module ONIX
     end
 
     def record_reference=(val)
-      if node = @root_node.find_first('//Product/RecordReference')
+      if node = root.find_first('//Product/RecordReference')
         node.content = val
       else
         node = XML::New.new("RecordReference")
         node.content = val
-        @root_node << node
+        root << node
       end
     end
 

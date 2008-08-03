@@ -4,7 +4,7 @@ module ONIX
       if node.kind_of? XML::Node
         @root_node = node
       else
-        @root_node = XML::Node.new
+        @root_node = XML::Node.new("Header")
       end 
     end
 

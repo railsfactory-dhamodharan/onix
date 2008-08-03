@@ -9,8 +9,12 @@ module ONIX
     end
 
     def text_content(path)
-      n = @root_node.find_first(path)
+      n = root.find_first(path)
       n ? n.content : nil
+    end
+
+    def root
+      @root_node
     end
   end
 end
