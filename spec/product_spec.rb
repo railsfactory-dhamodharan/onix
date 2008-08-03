@@ -29,6 +29,12 @@ context "ONIX::Product" do
     product.record_reference.should eql("365-9780194351898")
     product.notification_type.should eql(3)
     product.product_form.should eql("BC")
+    product.edition_number.should eql(1)
+    product.number_of_pages.should eql(100)
+    product.bic_main_subject.should eql("EB")
+    product.publishing_status.should eql(4)
+    product.publication_date.should eql("19980901")
+    product.year_first_published.should eql("1998")
   end
 
   specify "should provide read access to product IDs" do
