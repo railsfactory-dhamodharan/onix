@@ -2,9 +2,9 @@ module ONIX
   class Header < Base
     def initialize(node = nil)
       if node.kind_of? XML::Node
-        @node = node
+        @root_node = node
       else
-        @node = XML::Node.new
+        @root_node = XML::Node.new
       end 
     end
 
@@ -36,11 +36,5 @@ module ONIX
       text_content '//Header/ToPerson'
     end
 
-    private
-
-    def text_content(path)
-      n = @node.find_first(path)
-      n ? n.content : nil
-    end
   end
 end

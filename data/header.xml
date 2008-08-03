@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Header>
+  <FromCompany>Text Company</FromCompany>
+  <FromPerson>James</FromPerson>
+  <FromEmail>james@rainbowbooks.com.au</FromEmail>
+  <SentDate>20080519</SentDate>
+  <MessageNote>A Message</MessageNote>
+</Header>
