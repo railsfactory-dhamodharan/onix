@@ -15,7 +15,7 @@ reader.each do |prod|
   puts prod.isbn13
   puts prod.product_form
 
-  puts
+ puts
 end
 
 puts

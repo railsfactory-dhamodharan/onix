@@ -5,9 +5,9 @@ module ONIX
 
     def initialize(node = nil)
       if node.kind_of? XML::Node
-        @node = node
+        @product_node = node
       else
-        @node = XML::Node.new("Product")
+        @product_node = XML::Node.new("Product")
       end 
     end
 
@@ -16,17 +16,27 @@ module ONIX
     end
 
     def record_reference=(val)
-      if node = @node.find_first('//Product/RecordReference')
+      if node = @product_node.find_first('//Product/RecordReference')
         node.content = val
       else
         node = XML::New.new("RecordReference")
         node.content = val
-        @node << node
+        @product_node << node
       end
     end
 
     def notification_type
       numeric_content '//Product/NotificationType'
+    end
+
+    def notification_type=(val)
+      if node = @product_node.find_first('//Product/NotificationType')
+        node.content = val
+      else
+        node = XML::New.new("NotificationType")
+        node.content = val
+        @product_node << node
+      end
     end
 
     def isbn10
