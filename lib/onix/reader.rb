@@ -10,8 +10,8 @@ module ONIX
     def initialize(input)
       if input.kind_of? String
         @reader = XML::Reader.file(input)
-      elsif input.kind_of?(File) || input.kind_of?(StringIO)
-        @reader = XML::Reader.new(input)
+      elsif input.kind_of?(IO)
+        @reader = XML::Reader.new(input.read)
       else
         throw "Unable to read from path or file"
       end
