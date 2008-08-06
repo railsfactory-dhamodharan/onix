@@ -37,7 +37,7 @@ module ONIX
     end
 
     def sent_date
-      text_content '//Header/SentDate'
+      date_content '//Header/SentDate'
     end
 
     def to_ean_number

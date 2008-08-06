@@ -3,6 +3,13 @@ module ONIX
 
     private
 
+    def date_content(path)
+      n = root.find_first(path)
+      n ? Date.parse(n.content) : nil
+    rescue
+      nil
+    end
+
     def numeric_content(path)
       n = text_content(path)
       n ? n.to_i : nil

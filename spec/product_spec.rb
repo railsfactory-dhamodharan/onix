@@ -3,6 +3,7 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'onix'
+require 'date'
 
 context "ONIX::Product" do
 
@@ -33,7 +34,7 @@ context "ONIX::Product" do
     product.number_of_pages.should eql(100)
     product.bic_main_subject.should eql("EB")
     product.publishing_status.should eql(4)
-    product.publication_date.should eql("19980901")
+    product.publication_date.should eql(Date.civil(1998,9,1))
     product.year_first_published.should eql("1998")
   end
 

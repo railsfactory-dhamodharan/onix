@@ -39,7 +39,7 @@ context "ONIX::Header" do
 
     product.message_note.should eql("A Message")
     product.message_repeat.should eql(1)
-    product.sent_date.should eql("20080519")
+    product.sent_date.should eql(Date.civil(2008,5,19))
 
     product.default_language_of_text.should eql("aaa")
     product.default_price_type_code.should eql(1)

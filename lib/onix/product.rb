@@ -89,28 +89,34 @@ module ONIX
       text_content "//Product/Title/TitleType[text()='#{title_sym_to_num(type)}']/../TitleText"
     end
 
+    # return the format of the product
     def product_form
       text_content '//Product/ProductForm'
     end
 
+    # return the number of pages the product has
     def number_of_pages
       numeric_content '//Product/NumberOfPages'
     end
 
+    # return the edition number of the product
     def edition_number
       numeric_content '//Product/EditionNumber'
     end
 
+    # return the key BIC subject of the product
     def bic_main_subject
       text_content '//Product/BICMainSubject'
     end
 
+    # return the publishing status the product
     def publishing_status
       numeric_content '//Product/PublishingStatus'
     end
 
+    # return the date the product was/will be published
     def publication_date
-      text_content '//Product/PublicationDate'
+      date_content '//Product/PublicationDate'
     end
 
     def year_first_published
