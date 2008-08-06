@@ -40,9 +40,20 @@ context "ONIX::Product" do
   specify "should provide read access to product IDs" do
     product = ONIX::Product.new(@product_node)
 
-    product.isbn10.should eql("0194351890")
-    product.isbn13.should eql("9780194351898")
-    product.ean.should eql("9780194351898")
+    product.id(:isbn10).should eql("0194351890")
+    product.id(:isbn13).should eql("9780194351898")
+    product.id(:ean).should    eql("9780194351898")
   end
 
+  specify "should provide read access to titles" do
+    product = ONIX::Product.new(@product_node)
+
+    product.title(:distinct).should eql("OXFORD PICTURE DICTIONARY CHINESE")
+  end
+
+  specify "should provide read access to subjects" do
+    product = ONIX::Product.new(@product_node)
+
+    product.subjects(:bic_lang).should eql(['2ABM'])
+  end
 end

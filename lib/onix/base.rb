@@ -13,6 +13,12 @@ module ONIX
       n ? n.content : nil
     end
 
+    def text_content_array(path)
+      root.find(path).collect do |n|
+        n.content
+      end
+    end
+
     def root
       @root_node
     end
