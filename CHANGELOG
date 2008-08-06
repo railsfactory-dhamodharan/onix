@@ -1,3 +1,8 @@
+v0.3.0 (XXX)
+- Completly new API, built around libxml-ruby
+  - not *quite* as flexible as the xml-mapping/rexml based one,
+    but oh so much faster
+
 v0.2.4 (Unreleased)
 - Initialise the media files array of a new product correctly
 
