@@ -1,4 +1,8 @@
 module ONIX
+
+  # A mega class that wraps an ONIX <Header> record - one per ONIXMessage.
+  # 
+  # See ONIX::Reader and ONIX::Writer for examples of using this class.
   class Header < Base
     def initialize(node = nil)
       if node.kind_of? XML::Node

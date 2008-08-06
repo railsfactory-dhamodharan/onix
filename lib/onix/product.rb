@@ -119,6 +119,7 @@ module ONIX
       date_content '//Product/PublicationDate'
     end
 
+    # return the year the original edition of the product was published
     def year_first_published
       text_content '//Product/YearFirstPublished'
     end

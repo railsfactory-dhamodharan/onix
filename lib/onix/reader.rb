@@ -3,6 +3,16 @@ require 'timeout'
 require 'stringio'
 
 module ONIX
+  # Used to process an ONIX file and extract the data
+  #
+  #   reader = ONIX::Reader.new("somefile.xml")
+  #   puts "From: #{header.from_person}"
+  #   puts "From: #{header.from_company}"
+  #
+  #   reader.each do |product|
+  #     puts product.id(:ean)
+  #   end
+  #
   class Reader
 
     attr_reader :header
@@ -11,6 +21,8 @@ module ONIX
       if input.kind_of? String
         @reader = XML::Reader.file(input)
       elsif input.kind_of?(IO)
+        # TODO: this isn't very scalable. Can I get XML::Reader
+        #       to read from the IO object as it goes?
         @reader = XML::Reader.new(input.read)
       else
         throw "Unable to read from path or file"
@@ -46,13 +58,6 @@ module ONIX
         end
       end
       @queue.push nil
-    end
-
-    def build_header(str)
-      str
-    end
-
-    def build_product(str)
     end
   end
 end
