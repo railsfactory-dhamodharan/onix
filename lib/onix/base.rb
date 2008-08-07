@@ -1,6 +1,10 @@
 module ONIX
   class Base
 
+    def to_s
+      @root_node.to_s
+    end
+
     private
 
     def date_content(path)
