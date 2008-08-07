@@ -23,6 +23,11 @@ context "ONIX::Reader" do
     end
   end
 
+  specify "should provide access to the ONIX version of a file" do
+    reader = ONIX::Reader.new(@file1)
+    reader.version.should eql([2,1,0])
+  end
+
   specify "should provide access to the header in an ONIX file" do
     reader = ONIX::Reader.new(@file1)
     reader.header.should be_a_kind_of(ONIX::Header)
