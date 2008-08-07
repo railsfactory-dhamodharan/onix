@@ -15,7 +15,7 @@ module ONIX
   #
   class Reader
 
-    attr_reader :header
+    attr_reader :header, :version, :xml_lang, :xml_version
     
     def initialize(input)
       if input.kind_of? String
@@ -23,7 +23,7 @@ module ONIX
       elsif input.kind_of?(IO)
         # TODO: this isn't very scalable. Can I get XML::Reader
         #       to read from the IO object as it goes?
-        @reader = XML::Reader.new(input.read)
+        @reader = XML::Reader.io(input)
       else
         throw "Unable to read from path or file"
       end
@@ -49,6 +49,8 @@ module ONIX
 
     def read_input
       while @reader.read == 1
+        @xml_lang    = @reader.xml_lang         if @xml_lang.nil?
+        @xml_version = @reader.xml_version.to_f if @xml_version.nil?
         if @reader.name == "Header" && @reader.node_type == 1
           @header = ONIX::Header.new(@reader.expand)
           @reader.next_sibling
