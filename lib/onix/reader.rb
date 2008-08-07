@@ -21,8 +21,6 @@ module ONIX
       if input.kind_of? String
         @reader = XML::Reader.file(input)
       elsif input.kind_of?(IO)
-        # TODO: this isn't very scalable. Can I get XML::Reader
-        #       to read from the IO object as it goes?
         @reader = XML::Reader.io(input)
       else
         throw "Unable to read from path or file"
@@ -40,7 +38,7 @@ module ONIX
     def each(&block)
       obj = @queue.pop
       while !obj.nil?
-        yield obj 
+        yield obj
         obj = @queue.pop
       end
     end
