@@ -15,7 +15,7 @@ module ONIX
   #
   class Reader
 
-    attr_reader :header, :version, :xml_lang, :xml_version
+    attr_reader :header, :version, :xml_lang, :xml_version, :encoding
     
     def initialize(input)
       if input.kind_of? String
@@ -51,7 +51,12 @@ module ONIX
       while @reader.read == 1
         @xml_lang    = @reader.xml_lang         if @xml_lang.nil?
         @xml_version = @reader.xml_version.to_f if @xml_version.nil?
-        if @reader.name == "Header" && @reader.node_type == 1
+        @encoding    = @reader.encoding         if @encoding.nil?
+        if @reader.node_type == 10
+          uri = @reader.expand.inspect
+          m, major, minor, rev = *uri.match(/.+(\d)\.(\d)\/(\d*).*/)
+          @version = [major.to_i, minor.to_i, rev.to_i]
+        elsif @reader.name == "Header" && @reader.node_type == 1
           @header = ONIX::Header.new(@reader.expand)
           @reader.next_sibling
         elsif @reader.name == "Product" && @reader.node_type == 1

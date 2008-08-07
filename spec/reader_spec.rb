@@ -23,8 +23,11 @@ context "ONIX::Reader" do
     end
   end
 
-  specify "should provide access to the ONIX version of a file" do
+  specify "should provide access to various XML metadata from file" do
     reader = ONIX::Reader.new(@file1)
+    reader.encoding.should eql("utf-8")
+    reader.xml_lang.should eql(nil)
+    reader.xml_version.should eql(1.0)
     reader.version.should eql([2,1,0])
   end
 
