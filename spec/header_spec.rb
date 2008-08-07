@@ -13,39 +13,44 @@ context "ONIX::Header" do
     @header_node = @doc.root
   end
 
+  specify "should correctly convert to a string" do
+    header = ONIX::Header.new(@header_node)
+    header.to_s[0,8].should eql("<Header>")
+  end
+
   specify "should initialise with an existing node" do
-    product = ONIX::Header.new(@header_node)
-    product.instance_variable_get("@root_node").should eql(@header_node)
+    header = ONIX::Header.new(@header_node)
+    header.instance_variable_get("@root_node").should eql(@header_node)
   end
 
   specify "should create an empty node if none is provided on init" do
-    product = ONIX::Header.new
-    product.instance_variable_get("@root_node").should be_a_kind_of(XML::Node)
+    header = ONIX::Header.new
+    header.instance_variable_get("@root_node").should be_a_kind_of(XML::Node)
   end
 
   specify "should provide read access to first level attibutes" do
-    product = ONIX::Header.new(@header_node)
+    header = ONIX::Header.new(@header_node)
 
-    product.from_ean_number.should eql("1111111111111")
-    product.from_san.should eql("1111111")
-    product.from_company.should eql("Text Company")
-    product.from_email.should eql("james@rainbowbooks.com.au")
-    product.from_person.should eql("James")
+    header.from_ean_number.should eql("1111111111111")
+    header.from_san.should eql("1111111")
+    header.from_company.should eql("Text Company")
+    header.from_email.should eql("james@rainbowbooks.com.au")
+    header.from_person.should eql("James")
 
-    product.to_ean_number.should eql("2222222222222")
-    product.to_san.should eql("2222222")
-    product.to_company.should eql("Company 2")
-    product.to_person.should eql("Chris")
+    header.to_ean_number.should eql("2222222222222")
+    header.to_san.should eql("2222222")
+    header.to_company.should eql("Company 2")
+    header.to_person.should eql("Chris")
 
-    product.message_note.should eql("A Message")
-    product.message_repeat.should eql(1)
-    product.sent_date.should eql(Date.civil(2008,5,19))
+    header.message_note.should eql("A Message")
+    header.message_repeat.should eql(1)
+    header.sent_date.should eql(Date.civil(2008,5,19))
 
-    product.default_language_of_text.should eql("aaa")
-    product.default_price_type_code.should eql(1)
-    product.default_currency_code.should eql("ccc")
-    product.default_linear_unit.should eql("dd")
-    product.default_weight_unit.should eql("ee")
-    product.default_class_of_trade.should eql("f")
+    header.default_language_of_text.should eql("aaa")
+    header.default_price_type_code.should eql(1)
+    header.default_currency_code.should eql("ccc")
+    header.default_linear_unit.should eql("dd")
+    header.default_weight_unit.should eql("ee")
+    header.default_class_of_trade.should eql("f")
   end
 end
