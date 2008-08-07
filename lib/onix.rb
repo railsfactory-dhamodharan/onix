@@ -6,6 +6,7 @@ require File.dirname(__FILE__) + "/onix/base"
 require File.dirname(__FILE__) + "/onix/header"
 require File.dirname(__FILE__) + "/onix/product"
 require File.dirname(__FILE__) + "/onix/reader"
+require File.dirname(__FILE__) + "/onix/writer"
 
 # lists
 require File.join(File.dirname(__FILE__), "onix", "lists", "product_form")
