@@ -9,6 +9,7 @@ module ONIX
       raise ArgumentError, 'msg must be an ONIX::Header object' unless header.kind_of?(ONIX::Header)
       @output = output
       @header = header
+      @finished = false
 
       start_document
     end
@@ -16,18 +17,24 @@ module ONIX
     def self.open(output, header, &block)
       writer = self.new(output, header)
       yield writer
-      writer.end_document
+      writer.finish
     end
 
     def << (product)
       unless product.kind_of?(ONIX::Product)
         raise ArgumentError, 'product must be an ONIX::Product'
       end
+      raise "Can't add another product. Writer has been finished." if finished?
       @output.write(product.to_s + "\n")
     end
 
-    def end_document
+    def finish
       @output.write("</ONIXMessage>\n")
+      @finished = true
+    end
+
+    def finished?
+      @finished
     end
 
     private

@@ -14,7 +14,7 @@ context "ONIX::Writer" do
   specify "should output the correct xml metadata" do
     header = ONIX::Header.new
     writer = ONIX::Writer.new(@output, header)
-    writer.end_document
+    writer.finish
 
     lines = @output.string.split("\n")
 
@@ -59,5 +59,13 @@ context "ONIX::Writer" do
     lines = @output.string.split("\n")
 
     lines[4][0,8].should eql("<Product")
+  end
+
+  specify "should correctly store finished state" do
+    header = ONIX::Header.new
+    writer = ONIX::Writer.new(@output, header)
+    writer.finished?.should be_false
+    writer.finish
+    writer.finished?.should be_true
   end
 end
