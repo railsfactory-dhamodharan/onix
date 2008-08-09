@@ -13,75 +13,75 @@ module ONIX
     end
 
     def from_ean_number
-      text_content '//Header/FromEANNumber'
+      text_content '/FromEANNumber'
     end
 
     def from_san
-      text_content '//Header/FromSAN'
+      text_content '/FromSAN'
     end
 
     def from_company
-      text_content '//Header/FromCompany'
+      text_content '/FromCompany'
     end
 
     def from_email
-      text_content '//Header/FromEmail'
+      text_content '/FromEmail'
     end
 
     def from_person
-      text_content '//Header/FromPerson'
+      text_content '/FromPerson'
     end
 
     def message_note
-      text_content '//Header/MessageNote'
+      text_content '/MessageNote'
     end
 
     def message_repeat
-      numeric_content '//Header/MessageRepeat'
+      numeric_content '/MessageRepeat'
     end
 
     def sent_date
-      date_content '//Header/SentDate'
+      date_content '/SentDate'
     end
 
     def to_ean_number
-      text_content '//Header/ToEANNumber'
+      text_content '/ToEANNumber'
     end
 
     def to_san
-      text_content '//Header/ToSAN'
+      text_content '/ToSAN'
     end
 
     def to_company
-      text_content '//Header/ToCompany'
+      text_content '/ToCompany'
     end
 
     def to_person
-      text_content '//Header/ToPerson'
+      text_content '/ToPerson'
     end
 
     def default_language_of_text
-      text_content '//Header/DefaultLanguageOfText'
+      text_content '/DefaultLanguageOfText'
     end
 
     def default_price_type_code
-      numeric_content '//Header/DefaultPriceTypeCode'
+      numeric_content '/DefaultPriceTypeCode'
     end
 
     def default_currency_code
-      text_content '//Header/DefaultCurrencyCode'
+      text_content '/DefaultCurrencyCode'
     end
 
     def default_linear_unit
-      text_content '//Header/DefaultLinearUnit'
+      text_content '/DefaultLinearUnit'
     end
 
     def default_weight_unit
-      text_content '//Header/DefaultWeightUnit'
+      text_content '/DefaultWeightUnit'
     end
 
     def default_class_of_trade
-      text_content '//Header/DefaultClassOfTrade'
+      text_content '/DefaultClassOfTrade'
     end
   end
 end

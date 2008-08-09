@@ -37,11 +37,11 @@ module ONIX
     end
 
     def record_reference
-      text_content '//Product/RecordReference'
+      text_content '/RecordReference'
     end
 
     def record_reference=(val)
-      if node = root.find_first('//Product/RecordReference')
+      if node = root.find_first('/RecordReference')
         node.content = val
       else
         node = XML::New.new("RecordReference")
@@ -51,11 +51,11 @@ module ONIX
     end
 
     def notification_type
-      numeric_content '//Product/NotificationType'
+      numeric_content '/NotificationType'
     end
 
     def notification_type=(val)
-      if node = @root_node.find_first('//Product/NotificationType')
+      if node = @root_node.find_first('/NotificationType')
         node.content = val
       else
         node = XML::New.new("NotificationType")
@@ -70,7 +70,7 @@ module ONIX
     #   product.id(:isbn13)
     #   product.id(:ean)
     def id(type = :ean)
-      text_content "//Product/ProductIdentifier/ProductIDType[text()='#{id_sym_to_num(type)}']/../IDValue"
+      text_content "/ProductIdentifier/ProductIDType[text()='#{id_sym_to_num(type)}']/../IDValue"
     end
 
     # return the interesting value of a Subject composite
@@ -78,7 +78,7 @@ module ONIX
     #   product.subjects(:bisac_cat)
     #   product.subjects(:bic_subject)
     def subjects(type = :bic_subject)
-      text_content_array "//Product/Subject/SubjectSchemeIdentifier[text()='#{subject_sym_to_num(type)}']/../SubjectCode"
+      text_content_array "/Subject/SubjectSchemeIdentifier[text()='#{subject_sym_to_num(type)}']/../SubjectCode"
     end
 
     # return the interesting value of a Title composite
@@ -86,42 +86,42 @@ module ONIX
     #   product.title(:distinct)
     #   product.title(:expanded)
     def title(type = :distinct)
-      text_content "//Product/Title/TitleType[text()='#{title_sym_to_num(type)}']/../TitleText"
+      text_content "/Title/TitleType[text()='#{title_sym_to_num(type)}']/../TitleText"
     end
 
     # return the format of the product
     def product_form
-      text_content '//Product/ProductForm'
+      text_content '/ProductForm'
     end
 
     # return the number of pages the product has
     def number_of_pages
-      numeric_content '//Product/NumberOfPages'
+      numeric_content '/NumberOfPages'
     end
 
     # return the edition number of the product
     def edition_number
-      numeric_content '//Product/EditionNumber'
+      numeric_content '/EditionNumber'
     end
 
     # return the key BIC subject of the product
     def bic_main_subject
-      text_content '//Product/BICMainSubject'
+      text_content '/BICMainSubject'
     end
 
     # return the publishing status the product
     def publishing_status
-      numeric_content '//Product/PublishingStatus'
+      numeric_content '/PublishingStatus'
     end
 
     # return the date the product was/will be published
     def publication_date
-      date_content '//Product/PublicationDate'
+      date_content '/PublicationDate'
     end
 
     # return the year the original edition of the product was published
     def year_first_published
-      text_content '//Product/YearFirstPublished'
+      text_content '/YearFirstPublished'
     end
 
     private

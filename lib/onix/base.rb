@@ -8,7 +8,7 @@ module ONIX
     private
 
     def date_content(path)
-      n = root.find_first(path)
+      n = root.find_first(root.path + path)
       n ? Date.parse(n.content) : nil
     rescue
       nil
@@ -20,12 +20,12 @@ module ONIX
     end
 
     def text_content(path)
-      n = root.find_first(path)
+      n = root.find_first(root.path + path)
       n ? n.content : nil
     end
 
     def text_content_array(path)
-      root.find(path).collect do |n|
+      root.find(root.path + path).collect do |n|
         n.content
       end
     end
