@@ -1,6 +1,8 @@
 require 'rubygems'
 gem 'xml-mapping', '0.8.1'
 require 'xml/mapping'
+gem 'libxml-ruby', '>=0.8.3'
+require 'xml'
 
 # custom xml-mapping node types
 require File.join(File.dirname(__FILE__), "onix", "two_digit_node")
