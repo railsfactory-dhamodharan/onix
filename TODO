@@ -12,3 +12,5 @@
     - titlepage minimum set of tags
     - APA (if different to titlepage)
 - documentation
+- consider using a library like measure (http://rubyforge.org/projects/measure)
+  to handle measurement conversions
