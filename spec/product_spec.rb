@@ -57,4 +57,34 @@ context "ONIX::Product" do
 
     product.subjects(:bic_lang).should eql(['2ABM'])
   end
+
+  specify "should provide write access to first level attibutes" do
+    product = ONIX::Product.new
+
+    product.notification_type = 3
+    product.notification_type.should eql(3)
+    product.record_reference = "365-9780194351898"
+    product.record_reference.should eql("365-9780194351898")
+
+    product.product_form = "BC"
+    product.product_form.should eql("BC")
+
+    product.edition_number = 1
+    product.edition_number.should eql(1)
+
+    product.number_of_pages = 100
+    product.number_of_pages.should eql(100)
+
+    product.bic_main_subject = "EB"
+    product.bic_main_subject.should eql("EB")
+
+    product.publishing_status = 4
+    product.publishing_status.should eql(4)
+
+    product.publication_date = Date.civil(1998,9,1)
+    product.publication_date.should eql(Date.civil(1998,9,1))
+
+    product.year_first_published = "1998"
+    product.year_first_published.should eql("1998")
+  end
 end

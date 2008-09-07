@@ -32,7 +32,9 @@ module ONIX
       if node.kind_of? XML::Node
         @root_node = node
       else
-        @root_node = XML::Node.new("Product")
+        doc = XML::Document.new
+        doc.root = XML::Node.new("Product")
+        @root_node = doc.root
       end 
     end
 
@@ -41,13 +43,8 @@ module ONIX
     end
 
     def record_reference=(val)
-      if node = root.find_first('/RecordReference')
-        node.content = val
-      else
-        node = XML::New.new("RecordReference")
-        node.content = val
-        root << node
-      end
+      node = find_or_create('RecordReference')
+      node.content = val
     end
 
     def notification_type
@@ -55,13 +52,8 @@ module ONIX
     end
 
     def notification_type=(val)
-      if node = @root_node.find_first('/NotificationType')
-        node.content = val
-      else
-        node = XML::New.new("NotificationType")
-        node.content = val
-        @root_node << node
-      end
+      node = find_or_create('NotificationType')
+      node.content = val.to_s
     end
 
     # return the interesting value of a ProductIdentifier composite
@@ -94,9 +86,19 @@ module ONIX
       text_content '/ProductForm'
     end
 
+    def product_form=(val)
+      node = find_or_create('ProductForm')
+      node.content = val.to_s
+    end
+
     # return the number of pages the product has
     def number_of_pages
       numeric_content '/NumberOfPages'
+    end
+
+    def number_of_pages=(val)
+      node = find_or_create('NumberOfPages')
+      node.content = val.to_s
     end
 
     # return the edition number of the product
@@ -104,9 +106,19 @@ module ONIX
       numeric_content '/EditionNumber'
     end
 
+    def edition_number=(val)
+      node = find_or_create('EditionNumber')
+      node.content = val.to_s
+    end
+
     # return the key BIC subject of the product
     def bic_main_subject
       text_content '/BICMainSubject'
+    end
+
+    def bic_main_subject=(val)
+      node = find_or_create('BICMainSubject')
+      node.content = val.to_s
     end
 
     # return the publishing status the product
@@ -114,14 +126,30 @@ module ONIX
       numeric_content '/PublishingStatus'
     end
 
+    def publishing_status=(val)
+      node = find_or_create('PublishingStatus')
+      node.content = val.to_s
+    end
+
     # return the date the product was/will be published
     def publication_date
       date_content '/PublicationDate'
     end
 
+    def publication_date=(val)
+      raise ArgumentError, 'objects passed to sent_date() must respond to strftime' unless val.respond_to?(:strftime)
+      node = find_or_create('PublicationDate')
+      node.content = val.strftime("%Y%m%d")
+    end
+
     # return the year the original edition of the product was published
     def year_first_published
       text_content '/YearFirstPublished'
+    end
+
+    def year_first_published=(val)
+      node = find_or_create('YearFirstPublished')
+      node.content = val.to_s
     end
 
     private
