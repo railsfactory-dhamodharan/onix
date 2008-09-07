@@ -30,6 +30,15 @@ module ONIX
       end
     end
 
+    def find_or_create(element_name)
+      root.children.each do |child|
+        return child if child.name == element_name
+      end
+      node = XML::Node.new(element_name)
+      root << node
+      node
+    end
+
     def root
       @root_node
     end
