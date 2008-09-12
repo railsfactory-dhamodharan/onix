@@ -3,7 +3,7 @@ require 'rexml/document'
 module ONIX
   class Writer
 
-    DOCTYPE = "<!DOCTYPE ONIXMessage SYSTEM \"http://www.editeur.org/onix/2.1/03/reference/onix-international.dtd\">"
+    DOCTYPE = "http://www.editeur.org/onix/2.1/03/reference/onix-international.dtd"
 
     def initialize(output, header)
       raise ArgumentError, 'msg must be an ONIX::Header object' unless header.kind_of?(ONIX::Header)
