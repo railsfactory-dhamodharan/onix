@@ -62,7 +62,7 @@ spec = Gem::Specification.new do |s|
     "tasks/**/*.rb",
     "tasks/**/*.rake"
   ]
-  s.add_dependency('libxml-ruby', '0.8.1')
+  s.add_dependency('libxml-ruby', '>=0.8.3')
 end
 
 Rake::GemPackageTask.new(spec) do |p|
