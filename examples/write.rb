@@ -14,6 +14,7 @@ writer = ONIX::Writer.new(output, header)
 prod = ONIX::Product.new
 prod.notification_type = 3
 prod.record_reference = "1234567890"
+prod.set_id("0000000000", :isbn10)
 
 writer << prod
 

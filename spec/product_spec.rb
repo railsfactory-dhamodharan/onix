@@ -87,4 +87,13 @@ context "ONIX::Product" do
     product.year_first_published = "1998"
     product.year_first_published.should eql("1998")
   end
+
+  specify "should provide write access to product IDs" do
+    product = ONIX::Product.new
+
+    product.set_id("0194351890", :isbn10)
+    product.id(:isbn10).should eql("0194351890")
+    #product.id(:isbn13).should eql("9780194351898")
+    #product.id(:ean).should    eql("9780194351898")
+  end
 end

@@ -65,6 +65,10 @@ module ONIX
       text_content "/ProductIdentifier/ProductIDType[text()='#{id_sym_to_num(type)}']/../IDValue"
     end
 
+    def set_id(val, type = :ean)
+
+    end
+
     # return the interesting value of a Subject composite
     #
     #   product.subjects(:bisac_cat)
