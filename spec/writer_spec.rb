@@ -68,4 +68,12 @@ context "ONIX::Writer" do
     writer.finish
     writer.finished?.should be_true
   end
+
+  specify "should convert non-ASCII chars to references when outputting as a string" do
+    header = ONIX::Header.new
+    header.from_person = "Hans Küng"
+    ONIX::Writer.open(@output, header) { |writer| }
+
+    @output.string.include?("K&#252;ng").should be_true
+  end
 end

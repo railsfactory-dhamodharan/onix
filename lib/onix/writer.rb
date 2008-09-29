@@ -25,7 +25,7 @@ module ONIX
         raise ArgumentError, 'product must be an ONIX::Product'
       end
       raise "Can't add another product. Writer has been finished." if finished?
-      @output.write(product.to_s + "\n")
+      @output.write(add_character_references(product.to_s) + "\n")
     end
 
     def finish
@@ -46,7 +46,22 @@ module ONIX
       @output.write(decl.to_s+"\n")
       @output.write(doctype.to_s+"\n")
       @output.write("<ONIXMessage>\n")
-      @output.write(@header.to_s + "\n")
+      @output.write(add_character_references(@header.to_s) + "\n")
+    end
+
+    # convert all non ASCII characters to a character reference. Leave &
+    # and < alone, libxml handles converting them to entity references.
+    #
+    # http://en.wikipedia.org/wiki/XML#Numeric_character_references
+    #
+    def add_character_references(str)
+      str.unpack("U*").collect do |c|
+        if c <= 127
+          c.chr
+        else
+          "&##{c};"
+        end
+      end.join
     end
 
   end
