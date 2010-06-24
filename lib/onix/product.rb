@@ -12,6 +12,7 @@ module ONIX
     xml_accessor :product_form, :from => "ProductForm"
     xml_accessor :product_form_detail, :from => "ProductFormDetail"
     xml_accessor :series, :from => "Series", :as => [ONIX::Series]
+    xml_accessor :sets, :from => "Set", :as => [ONIX::Set]
     xml_accessor :titles, :from => "Title", :as => [ONIX::Title]
     xml_accessor :websites, :from => "Website", :as => [ONIX::Website]
     xml_accessor :contributors, :from => "Contributor", :as => [ONIX::Contributor]
@@ -53,6 +54,7 @@ module ONIX
     def initialize
       self.product_identifiers = []
       self.series = []
+      self.sets = []
       self.titles = []
       self.contributors = []
       self.websites = []

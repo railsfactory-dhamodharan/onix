@@ -29,6 +29,28 @@ module ONIX
       end
     end
     
+    # retrieve the value of a particular ID
+    def set(str)
+      product.sets.find { |id| id.title_of_set == str }
+    end
+
+    # set the value of a particular ID
+    def set=(value)
+      # process based on value type
+      if value.is_a?(Set)
+        str = value.title_of_set
+        set_id = value
+      else
+        str = value
+        set_id = ONIX::Set.new
+        set_id.title_of_set = value
+      end
+      # check if exists already
+      unless set(str)
+        product.sets << set_id
+      end
+    end
+    
     # retrieve an array of all languages
     def languages
       product.languages.collect { |language| language.language_code}
