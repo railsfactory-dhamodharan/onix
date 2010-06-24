@@ -61,8 +61,9 @@ context ONIX::SLProduct, "series method" do
     sl = ONIX::SLProduct.new
 
     sl.series = "Harry Potter"
-    sl.series.should eql("Harry Potter")
+    sl.series = "Lemony Snicket"
     sl.to_xml.to_s.include?("<TitleOfSeries>Harry Potter</TitleOfSeries>").should be_true
+    sl.to_xml.to_s.include?("<TitleOfSeries>Lemony Snicket</TitleOfSeries>").should be_true
   end
 end
 
