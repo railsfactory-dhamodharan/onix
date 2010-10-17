@@ -41,8 +41,8 @@ context "ONIX::SLProduct" do
     sl.number_of_pages = 100
     sl.to_xml.to_s.include?("<NumberOfPages>100</NumberOfPages>").should be_true
 
-    sl.bic_main_subject = "EB"
-    sl.to_xml.to_s.include?("<BICMainSubject>EB</BICMainSubject>").should be_true
+    sl.basic_main_subject = "JNF053090"
+    sl.to_xml.to_s.include?("<BASICMainSubject>JNF053090</BASICMainSubject>").should be_true
 
     sl.publishing_status = 4
     sl.to_xml.to_s.include?("<PublishingStatus>04</PublishingStatus>").should be_true

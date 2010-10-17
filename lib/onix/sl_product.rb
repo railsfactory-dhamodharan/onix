@@ -6,6 +6,7 @@ module ONIX
     delegate :audience_code, :audience_code=
     delegate :copyright_year, :copyright_year=
     delegate :product_form_detail, :product_form_detail=
+    delegate :basic_main_subject, :basic_main_subject=
     
     # retrieve the value of a particular ID
     def series(str)
