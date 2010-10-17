@@ -52,6 +52,19 @@ module ONIX
       end
     end
     
+    def add_price(amount, *args)
+      options = args.extract_options!.symbolize_keys
+      # restrict keys to setter methods of format "text="
+      keys = ONIX::Price.instance_methods.delete_if{|x| ! /\w+=$/.match(x)}.map{|x| x.gsub(/=$/, '').to_sym}
+      options.assert_valid_keys(keys)
+      options.reverse_merge!(:price_type_code => 1)
+      price = ONIX::Price.new
+      price.price_amount = amount
+      options.each { |k, v| price.send("#{k}=", v) }
+      supply = find_or_create_supply_detail
+      supply.prices << price
+    end
+    
     # retrieve an array of all languages
     def languages
       product.languages.collect { |language| language.language_code}
