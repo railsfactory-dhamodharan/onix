@@ -79,7 +79,7 @@ module ONIX
       keys = ONIX::Price.instance_methods.delete_if{|x| ! /\w+=$/.match(x)}.map{|x| x.gsub(/=$/, '').to_sym}
       options.assert_valid_keys(keys)
       # if price_type_code is not set, default to 1
-      options.replace([:price_type_code => 1].merge(options))
+      options.replace({:price_type_code => 1}.merge(options))
       price = ONIX::Price.new
       price.price_amount = amount
       options.each { |k, v| price.send("#{k}=", v) }
