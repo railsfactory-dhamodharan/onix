@@ -7,14 +7,6 @@ require 'roxml'
 require 'andand'
 
 module ONIX
-  module Version #:nodoc:
-    Major = 0
-    Minor = 8
-    Tiny  = 6
-
-    String = [Major, Minor, Tiny].join('.')
-  end
-
   class Formatters
     def self.decimal
       lambda do |val|

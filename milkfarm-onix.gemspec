@@ -1,6 +1,9 @@
+$:.push File.expand_path("../lib", __FILE__)
+require "onix/version"
+
 Gem::Specification.new do |s|
   s.name              = "milkfarm-onix"
-  s.version           = "0.8.7"
+  s.version           = ONIX::VERSION
   s.summary           = "A convient mapping between ruby objects and the ONIX XML specification"
   s.description       = "A fork of the original onix gem by James Healy. Differs from original mainly in it's adjustments for the US school/library market as applied in the product wrapper SLProduct."
   s.authors           = ["James Healy", "milkfarm productions"]
