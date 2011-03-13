@@ -52,6 +52,27 @@ module ONIX
       end
     end
     
+    # retrieve the work_identifier that matches the given value
+    def work_identifier(str)
+      product.work_identifiers.find { |obj| obj.id_value == str }
+    end
+    
+    # set the value of a particular ID
+    def add_work_identifier(value, type = 1)
+      # process based on value type
+      if value.is_a?(WorkIdentifier)
+        str = value.id_value
+        work_identifier_obj = value
+      else
+        str = value
+        work_identifier_obj = ONIX::WorkIdentifier.new(:work_id_type => type, :id_value => value)
+      end
+      # check if exists already
+      unless work_identifier(str)
+        product.work_identifiers << work_identifier_obj
+      end
+    end
+    
     def add_price(amount, *args)
       options = args.extract_options!.symbolize_keys
       # restrict keys to setter methods of format "text="

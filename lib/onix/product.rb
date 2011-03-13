@@ -14,6 +14,7 @@ module ONIX
     xml_accessor :series, :from => "Series", :as => [ONIX::Series]
     xml_accessor :sets, :from => "Set", :as => [ONIX::Set]
     xml_accessor :titles, :from => "Title", :as => [ONIX::Title]
+    xml_accessor :work_identifiers, :from => "WorkIdentifier", :as => [ONIX::WorkIdentifier]
     xml_accessor :websites, :from => "Website", :as => [ONIX::Website]
     xml_accessor :contributors, :from => "Contributor", :as => [ONIX::Contributor]
     xml_accessor :edition_number, :from => "EditionNumber", :as => Fixnum
@@ -57,6 +58,7 @@ module ONIX
       self.series = []
       self.sets = []
       self.titles = []
+      self.work_identifiers = []
       self.contributors = []
       self.websites = []
       self.subjects = []
