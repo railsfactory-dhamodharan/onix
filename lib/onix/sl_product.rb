@@ -7,6 +7,7 @@ module ONIX
     delegate :copyright_year, :copyright_year=
     delegate :product_form_detail, :product_form_detail=
     delegate :basic_main_subject, :basic_main_subject=
+    delegate :epub_type, :epub_type=
     
     # retrieve the value of a particular ID
     def series(str)

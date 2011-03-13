@@ -11,6 +11,7 @@ module ONIX
     xml_accessor :product_identifiers, :from => "ProductIdentifier", :as => [ONIX::ProductIdentifier]
     xml_accessor :product_form, :from => "ProductForm"
     xml_accessor :product_form_detail, :from => "ProductFormDetail"
+    xml_reader   :epub_type, :from => "EpubType"
     xml_accessor :series, :from => "Series", :as => [ONIX::Series]
     xml_accessor :sets, :from => "Set", :as => [ONIX::Set]
     xml_accessor :titles, :from => "Title", :as => [ONIX::Title]
@@ -72,6 +73,17 @@ module ONIX
       self.measurements = []
       self.supply_details = []
       self.market_representations = []
+    end
+    
+    # TODO: Refactor writer methods using method_missing
+    def epub_type=(new_epub_type)
+      if new_epub_type.nil? || ONIX::Lists.list(10).keys.include?(new_epub_type)
+        # ProductForm code must equal DG if EpubType element is present
+        @product_form = "DG"
+        @epub_type = new_epub_type
+      else
+        raise "Invalid EpubType #{new_epub_type}"
+      end
     end
   end
 end
