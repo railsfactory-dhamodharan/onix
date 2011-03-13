@@ -1,3 +1,24 @@
+v0.8.7 (13 March 2011)
+- Merge yob's commits (code lists, short tags, i18n)
+- Add WorkIdentifier composite (PR.7.15, PR.7.16, PR.7.17)
+- Add EpubType element (PR.23.27)
+
+v0.8.6 (17 October 2010)
+- Provide method to set multiple prices 
+  - eg, General trade and School/Library market
+- Fix reference name of price type qualifier (PR.24.50)
+  - 'PriceTypeQualifier' should be 'PriceQualifier'
+
+v0.8.5 (Unreleased)
+- Pull yob's dependency yob-roxml
+
+v0.8.4 (Unreleased)
+- Handle BISAC main subject category (PR.13.1)
+
+----------------------------------------------------------------------
+- Accidentally diverged from yob's official onix gem version numbers
+----------------------------------------------------------------------
+
 v0.8.3 (9th September 2010)
 - Fix for race condition in ONIX::Normaliser
   - thanks to pixelvixen for reporting
