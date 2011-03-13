@@ -1,12 +1,12 @@
 Gem::Specification.new do |s|
-  s.name              = "onix"
-  s.version           = "0.8.4"
+  s.name              = "milkfarm-onix"
+  s.version           = "0.8.7"
   s.summary           = "A convient mapping between ruby objects and the ONIX XML specification"
-  s.description       = "A convient mapping between ruby objects and the ONIX XML specification"
-  s.authors           = ["James Healy"]
-  s.email             = ["jimmy@deefa.com"]
+  s.description       = "A fork of the original onix gem by James Healy. Differs from original mainly in it's adjustments for the US school/library market as applied in the product wrapper SLProduct."
+  s.authors           = ["James Healy", "milkfarm productions"]
+  s.email             = ["jimmy@deefa.com", "stuff@milkfarmproductions.com"]
   s.has_rdoc          = true
-  s.homepage          = "http://github.com/yob/onix"
+  s.homepage          = "http://github.com/milkfarm/onix"
   s.rdoc_options     << "--title" << "ONIX - Working with the ONIX XML spec" <<
                         "--line-numbers"
   s.test_files        = Dir.glob("spec/**/*.rb")
@@ -20,4 +20,3 @@ Gem::Specification.new do |s|
   s.add_development_dependency("rake")
   s.add_development_dependency("rspec", "~>2.1")
 end
-
