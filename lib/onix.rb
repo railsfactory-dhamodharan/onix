@@ -31,15 +31,21 @@ module ONIX
     end
 
     def self.two_digit
+      padded_number(2)
+    end
+    
+    def self.three_digit
+      padded_number(3)
+    end
+    
+    def self.padded_number(n)
       lambda do |val|
         if val.nil?
           nil
-        elsif val < 10
-          "0#{val}"
-        elsif val > 99
-          val.to_s[-2,2]
+        elsif val >= 0 && val < 10**n
+          sprintf("%0#{n}d", val)
         else
-          val.to_s
+          raise ArgumentError, "Value '#{val}' does not conform to #{n}-digit restrictions"
         end
       end
     end

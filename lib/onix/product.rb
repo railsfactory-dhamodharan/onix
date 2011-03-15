@@ -11,7 +11,7 @@ module ONIX
     xml_accessor :product_identifiers, :from => "ProductIdentifier", :as => [ONIX::ProductIdentifier]
     xml_accessor :product_form, :from => "ProductForm"
     xml_accessor :product_form_detail, :from => "ProductFormDetail"
-    xml_reader   :epub_type, :from => "EpubType"
+    xml_reader   :epub_type, :from => "EpubType", :as => Fixnum, :to_xml => ONIX::Formatters.three_digit
     xml_accessor :series, :from => "Series", :as => [ONIX::Series]
     xml_accessor :sets, :from => "Set", :as => [ONIX::Set]
     xml_accessor :titles, :from => "Title", :as => [ONIX::Title]
