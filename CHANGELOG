@@ -1,3 +1,6 @@
+v0.8.8 (15 March 2011)
+- Format EpubType value as 3-digit, padded number
+
 v0.8.7 (13 March 2011)
 - Merge yob's commits (code lists, short tags, i18n)
 - Add WorkIdentifier composite (PR.7.15, PR.7.16, PR.7.17)
