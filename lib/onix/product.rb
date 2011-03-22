@@ -76,13 +76,13 @@ module ONIX
     end
     
     # TODO: Refactor writer methods using method_missing
-    def epub_type=(new_epub_type)
-      if new_epub_type.nil? || ONIX::Lists.list(10).keys.include?(new_epub_type)
+    def epub_type=(new_value)
+      if new_value.nil? || ONIX::Lists.list(10).keys.include?(new_value)
         # ProductForm code must equal DG if EpubType element is present
-        @product_form = "DG"
-        @epub_type = new_epub_type
+        @product_form = "DG" unless new_value.nil?
+        @epub_type = new_value
       else
-        raise "Invalid EpubType #{new_epub_type}"
+        raise "Invalid EpubType #{new_value}"
       end
     end
   end
