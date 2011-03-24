@@ -58,6 +58,7 @@ end
 require File.join(File.dirname(__FILE__), "onix", "sender_identifier")
 require File.join(File.dirname(__FILE__), "onix", "addressee_identifier")
 require File.join(File.dirname(__FILE__), "onix", "header")
+require File.join(File.dirname(__FILE__), "onix", "product_identifiers")
 require File.join(File.dirname(__FILE__), "onix", "product_identifier")
 require File.join(File.dirname(__FILE__), "onix", "series_identifier")
 require File.join(File.dirname(__FILE__), "onix", "series")

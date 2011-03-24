@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FakeEntity>
+  <ProductIdentifier>
+    <ProductIDType>01</ProductIDType>
+    <IDValue>PROPRIETARY_ID</IDValue>
+  </ProductIdentifier>
+  <ProductIdentifier>
+    <ProductIDType>02</ProductIDType>
+    <IDValue>ISBN10</IDValue>
+  </ProductIdentifier>
+  <ProductIdentifier>
+    <ProductIDType>03</ProductIDType>
+    <IDValue>EAN</IDValue>
+  </ProductIdentifier>
+  <ProductIdentifier>
+    <ProductIDType>13</ProductIDType>
+    <IDValue>LCCN</IDValue>
+  </ProductIdentifier>
+  <ProductIdentifier>
+    <ProductIDType>15</ProductIDType>
+    <IDValue>ISBN13</IDValue>
+  </ProductIdentifier>
+</FakeEntity>
