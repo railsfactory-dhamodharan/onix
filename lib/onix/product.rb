@@ -42,6 +42,7 @@ module ONIX
     xml_accessor :year_first_published, :from => "YearFirstPublished", :as => Fixnum
     xml_accessor :sales_restrictions, :from => "SalesRestriction", :as => [ONIX::SalesRestriction]
     xml_accessor :measurements, :from => "Measure", :as => [ONIX::Measure]
+    xml_accessor :related_products, :from => "RelatedProduct", :as => [ONIX::RelatedProduct]
     xml_accessor :supply_details, :from => "SupplyDetail", :as => [ONIX::SupplyDetail]
     xml_accessor :market_representations, :from => "MarketRepresentation", :as => [ONIX::MarketRepresentation]
 
@@ -71,6 +72,7 @@ module ONIX
       self.publishers = []
       self.sales_restrictions = []
       self.measurements = []
+      self.related_products = []
       self.supply_details = []
       self.market_representations = []
     end

@@ -1,62 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE ONIXMessage SYSTEM "http://www.editeur.org/onix/2.1/03/reference/onix-international.dtd">
 <Product>
-  <RecordReference>10001</RecordReference>
-  <NotificationType>02</NotificationType>
+  <RecordReference>200002</RecordReference>
+  <NotificationType>03</NotificationType>
   <ProductIdentifier>
     <ProductIDType>01</ProductIDType>
-    <IDValue>10001</IDValue>
+    <IDValue>200002</IDValue>
   </ProductIdentifier>
   <ProductIdentifier>
     <ProductIDType>02</ProductIDType>
-    <IDValue>1602791082</IDValue>
+    <IDValue>1602790604</IDValue>
   </ProductIdentifier>
   <ProductIdentifier>
     <ProductIDType>15</ProductIDType>
-    <IDValue>9781602791084</IDValue>
+    <IDValue>9781602790605</IDValue>
   </ProductIdentifier>
+  <ProductForm>BB</ProductForm>
+  <ProductFormDetail>B306</ProductFormDetail>
+  <Series>
+    <SeriesIdentifier>
+      <SeriesIDType>01</SeriesIDType>
+      <IDValue>1</IDValue>
+    </SeriesIdentifier>
+    <TitleOfSeries>Citizens and Their Governments</TitleOfSeries>
+  </Series>
+  <Set>
+    <ProductIdentifier>
+      <ProductIDType>01</ProductIDType>
+      <IDValue>200920</IDValue>
+    </ProductIdentifier>
+    <ProductIdentifier>
+      <ProductIDType>15</ProductIDType>
+      <IDValue>9781610800457</IDValue>
+    </ProductIdentifier>
+    <TitleOfSet>21st Century Skills Library</TitleOfSet>
+  </Set>
+  <Set>
+    <ProductIdentifier>
+      <ProductIDType>01</ProductIDType>
+      <IDValue>200001</IDValue>
+    </ProductIdentifier>
+    <ProductIdentifier>
+      <ProductIDType>15</ProductIDType>
+      <IDValue>9781602791084</IDValue>
+    </ProductIdentifier>
+    <TitleOfSet>Citizens and Their Governments</TitleOfSet>
+  </Set>
   <Title>
     <TitleType>01</TitleType>
-    <TitleText>Citizens and Their Governments</TitleText>
+    <TitleText>Beyond Government</TitleText>
   </Title>
-  <CopyrightYear>2008</CopyrightYear>
-  <AudienceRange>
-    <AudienceRangeQualifier>11</AudienceRangeQualifier>
-    <AudienceRangePrecision>03</AudienceRangePrecision>
-    <AudienceRangePrecision>04</AudienceRangePrecision>
-    <AudienceRangeValue>3</AudienceRangeValue>
-    <AudienceRangeValue>5</AudienceRangeValue>
-  </AudienceRange>
+  <WorkIdentifier>
+    <WorkIDType>01</WorkIDType>
+    <IDValue>10002</IDValue>
+  </WorkIdentifier>
+  <Website>
+    <WebsiteRole>12</WebsiteRole>
+    <WebsiteLink>http://cherrylakepublishing.com/shop/show/10002</WebsiteLink>
+  </Website>
+  <Contributor>
+    <SequenceNumber>1</SequenceNumber>
+    <ContributorRole>A01</ContributorRole>
+    <PersonNameInverted>Muschal, Frank</PersonNameInverted>
+  </Contributor>
   <Language>
     <LanguageRole>01</LanguageRole>
     <LanguageCode>eng</LanguageCode>
+    <CountryCode>US</CountryCode>
   </Language>
-  <Website>
-    <WebsiteRole>12</WebsiteRole>
-    <WebsiteLink>http://www.cherrylakepublishing.com/shop/show/10001</WebsiteLink>
-  </Website>
   <NumberOfPages>32</NumberOfPages>
   <BASICMainSubject>JNF053090</BASICMainSubject>
+  <Subject>
+    <SubjectSchemeIdentifier>01</SubjectSchemeIdentifier>
+    <SubjectCode>361.7</SubjectCode>
+  </Subject>
+  <AudienceCode>04</AudienceCode>
+  <AudienceRange>
+    <AudienceRangeQualifier>11</AudienceRangeQualifier>
+    <AudienceRangePrecision>03</AudienceRangePrecision>
+    <AudienceRangeValue>4</AudienceRangeValue>
+    <AudienceRangePrecision>04</AudienceRangePrecision>
+    <AudienceRangeValue>8</AudienceRangeValue>
+  </AudienceRange>
   <OtherText>
     <TextTypeCode>01</TextTypeCode>
-    <Text>This series focuses on teaching civic literacy from a global perspective.  Why is voting important?  How do elections differ around the world?  What is the impact of immigration? How does the government work?</Text>
+    <Text>There are many opportunities for people to make a difference, such as delivering meals to the elderly or volunteering with United Way or the Red Cross. This book encourages people to help out where they can.</Text>
   </OtherText>
   <MediaFile>
     <MediaFileTypeCode>04</MediaFileTypeCode>
     <MediaFileLinkTypeCode>01</MediaFileLinkTypeCode>
-    <MediaFileLink>http://www.cherrylakepublishing.com/images/covers/l/9781602791084</MediaFileLink>
+    <MediaFileLink>http://cherrylakepublishing.com/images/covers/l/9781602790605.jpg</MediaFileLink>
   </MediaFile>
   <MediaFile>
     <MediaFileTypeCode>07</MediaFileTypeCode>
     <MediaFileLinkTypeCode>01</MediaFileLinkTypeCode>
-    <MediaFileLink>http://www.cherrylakepublishing.com/images/covers/m/9781602791084</MediaFileLink>
+    <MediaFileLink>http://cherrylakepublishing.com/images/covers/m/9781602790605.jpg</MediaFileLink>
   </MediaFile>
   <Publisher>
     <PublishingRole>01</PublishingRole>
-    <PublisherName>Cherry Lake</PublisherName>
+    <PublisherName>Cherry Lake Publishing</PublisherName>
   </Publisher>
-  <PublishingStatus>02</PublishingStatus>
-  <PublicationDate>20091201</PublicationDate>
+  <PublishingStatus>04</PublishingStatus>
+  <PublicationDate>20070801</PublicationDate>
+  <CopyrightYear>2008</CopyrightYear>
   <Measure>
     <MeasureTypeCode>01</MeasureTypeCode>
     <Measurement>9.5</Measurement>
@@ -67,16 +113,30 @@
     <Measurement>7.5</Measurement>
     <MeasureUnitCode>in</MeasureUnitCode>
   </Measure>
+  <RelatedProduct>
+    <RelationCode>05</RelationCode>
+    <ProductIdentifier>
+      <ProductIDType>01</ProductIDType>
+      <IDValue>123456</IDValue>
+    </ProductIdentifier>
+  </RelatedProduct>
   <SupplyDetail>
     <SupplierName>Cherry Lake Publishing</SupplierName>
     <TelephoneNumber>1-866-918-3956</TelephoneNumber>
     <FaxNumber>1-866-489-6490</FaxNumber>
     <EmailAddress>sales@cherrylakepublishing.com</EmailAddress>
     <SupplyToCountry>US</SupplyToCountry>
-    <ProductAvailability>10</ProductAvailability>
+    <ProductAvailability>20</ProductAvailability>
     <Price>
       <PriceTypeCode>01</PriceTypeCode>
-      <PriceAmount>232.65</PriceAmount>
+      <PriceTypeDescription>USA school/library market price</PriceTypeDescription>
+      <ClassOfTrade>sl</ClassOfTrade>
+      <PriceAmount>18.95</PriceAmount>
+    </Price>
+    <Price>
+      <PriceTypeCode>01</PriceTypeCode>
+      <PriceTypeDescription>USA list price</PriceTypeDescription>
+      <PriceAmount>27.07</PriceAmount>
     </Price>
   </SupplyDetail>
 </Product>

@@ -8,6 +8,7 @@ module ONIX
     delegate :product_form_detail, :product_form_detail=
     delegate :basic_main_subject, :basic_main_subject=
     delegate :epub_type, :epub_type=
+    delegate :related_products, :related_products=
     
     # retrieve the value of a particular ID
     def series(str)
@@ -63,14 +64,28 @@ module ONIX
       # process based on value type
       if value.is_a?(WorkIdentifier)
         str = value.id_value
-        work_identifier_obj = value
+        obj = value
       else
         str = value
-        work_identifier_obj = ONIX::WorkIdentifier.new(:work_id_type => type, :id_value => value)
+        obj = ONIX::WorkIdentifier.new(:work_id_type => type, :id_value => value)
       end
       # check if exists already
       unless work_identifier(str)
-        product.work_identifiers << work_identifier_obj
+        product.work_identifiers << obj
+      end
+    end
+    
+    # find the related_product that has relation_code 5
+    def replacement
+      product.related_products.find { |obj| obj.relation_code == 5 }
+    end
+    
+    # set the proprietary_id of the replacement product
+    def replacement=(value)
+      if obj = replacement
+        obj.proprietary_id = value
+      else
+        product.related_products << ONIX::RelatedProduct.new(:relation_code => 5, :proprietary_id => value)
       end
     end
     
