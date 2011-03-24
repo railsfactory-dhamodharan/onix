@@ -3,7 +3,7 @@
 require File.dirname(__FILE__) + '/spec_helper.rb'
 require 'date'
 
-context "ONIX::SLProduct" do
+describe ONIX::SLProduct do
 
   before(:each) do
     @data_path = File.join(File.dirname(__FILE__),"..","data")
@@ -12,7 +12,7 @@ context "ONIX::SLProduct" do
     @product_node = @doc.root
   end
 
-  specify "should provide read access to attributes" do
+  it "should provide read access to attributes" do
     @product  = ONIX::Product.from_xml(@product_node.to_s)
     @sl       = ONIX::SLProduct.new(@product)
 
@@ -28,7 +28,7 @@ context "ONIX::SLProduct" do
     @sl.related_products[0].relation_code.should eql(5)
   end
 
-  specify "should provide write access to attributes" do
+  it "should provide write access to attributes" do
     sl = ONIX::SLProduct.new
 
     sl.notification_type = 3
@@ -61,7 +61,7 @@ context "ONIX::SLProduct" do
     sl.related_products[1].to_xml.to_s.include?("<RelationCode>02</RelationCode>").should be_true
   end
   
-  specify "should provide read access to replacement" do
+  it "should provide read access to replacement" do
     @product  = ONIX::Product.from_xml(@product_node.to_s)
     @sl       = ONIX::SLProduct.new(@product)
 
@@ -69,7 +69,7 @@ context "ONIX::SLProduct" do
     @sl.replacement.proprietary_id.should eql("123456")
   end
   
-  specify "should provide write access to replacement" do
+  it "should provide write access to replacement" do
     sl = ONIX::SLProduct.new
     
     sl.replacement = "XYZ123"
@@ -80,8 +80,8 @@ context "ONIX::SLProduct" do
 
 end
 
-context ONIX::SLProduct, "series method" do
-  specify "should set the nested series value on the underlying product class" do
+describe ONIX::SLProduct, "series method" do
+  it "should set the nested series value on the underlying product class" do
     sl = ONIX::SLProduct.new
 
     sl.series = "Harry Potter"
@@ -91,7 +91,7 @@ context ONIX::SLProduct, "series method" do
   end
 end
 
-context ONIX::SLProduct, "price method" do
+describe ONIX::SLProduct, "price method" do
   before(:each) do
     @data_path = File.join(File.dirname(__FILE__),"..","data")
     file1    = File.join(@data_path, "usd.xml")
@@ -99,7 +99,7 @@ context ONIX::SLProduct, "price method" do
     @product_node = @doc.root
   end
 
-  specify "should return the first price in the file, regardless of type" do
+  it "should return the first price in the file, regardless of type" do
     @product = ONIX::Product.from_xml(@product_node.to_s)
     @sl     = ONIX::SLProduct.new(@product)
 
@@ -107,7 +107,7 @@ context ONIX::SLProduct, "price method" do
   end
 end
 
-context ONIX::SLProduct, "rrp_exc_sales_tax method" do
+describe ONIX::SLProduct, "rrp_exc_sales_tax method" do
   before(:each) do
     @data_path = File.join(File.dirname(__FILE__),"..","data")
     file1    = File.join(@data_path, "usd.xml")
@@ -115,7 +115,7 @@ context ONIX::SLProduct, "rrp_exc_sales_tax method" do
     @product_node = @doc.root
   end
 
-  specify "should return the first price in the file of type 1" do
+  it "should return the first price in the file of type 1" do
     @product = ONIX::Product.from_xml(@product_node.to_s)
     @sl     = ONIX::SLProduct.new(@product)
 
