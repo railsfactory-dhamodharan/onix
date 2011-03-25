@@ -77,6 +77,17 @@ describe ONIX::SLProduct do
     sl.related_products[0].to_xml.to_s.include?("<ProductIDType>01</ProductIDType>").should be_true
     sl.related_products[0].to_xml.to_s.include?("<IDValue>XYZ123</IDValue>").should be_true
   end
+  
+  it "should provide write access to epub_type" do
+    sl = ONIX::SLProduct.new
+    sl.epub_type = 1
+    sl.to_xml.to_s.include?("<EpubType>001</EpubType>").should be_true
+  end
+  
+  it "should raise error when writing invalid epub_type" do
+    sl = ONIX::SLProduct.new
+    lambda {sl.epub_type = 999}.should raise_error
+  end
 
 end
 

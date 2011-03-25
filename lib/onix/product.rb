@@ -3,6 +3,7 @@
 module ONIX
   class Product
     include ROXML
+    extend ONIX::ListWriter
 
     xml_name "Product"
 
@@ -12,6 +13,7 @@ module ONIX
     xml_accessor :product_form, :from => "ProductForm"
     xml_accessor :product_form_detail, :from => "ProductFormDetail"
     xml_reader   :epub_type, :from => "EpubType", :as => Fixnum, :to_xml => ONIX::Formatters.three_digit
+    list_writer  :epub_type, :list => 10
     xml_accessor :series, :from => "Series", :as => [ONIX::Series]
     xml_accessor :sets, :from => "Set", :as => [ONIX::Set]
     xml_accessor :titles, :from => "Title", :as => [ONIX::Title]
@@ -77,15 +79,5 @@ module ONIX
       self.market_representations = []
     end
     
-    # TODO: Refactor writer methods using method_missing
-    def epub_type=(new_value)
-      if new_value.nil? || ONIX::Lists.list(10).keys.include?(new_value)
-        # ProductForm code must equal DG if EpubType element is present
-        @product_form = "DG" unless new_value.nil?
-        @epub_type = new_value
-      else
-        raise ArgumentError, "Invalid EpubType value: #{new_value}"
-      end
-    end
   end
 end
