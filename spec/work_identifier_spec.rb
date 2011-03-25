@@ -35,5 +35,11 @@ describe ONIX::WorkIdentifier do
     t.id_value = "ABC123"
     t.to_xml.to_s.include?("<IDValue>ABC123</IDValue>").should be_true
   end
+  
+  it "should raise error writing work_id_type value not in list" do
+    t = ONIX::WorkIdentifier.new
+    lambda {t.work_id_type = 999}.should raise_error
+    lambda {ONIX::WorkIdentifier.new(:work_id_type => 999)}.should raise_error
+  end
 
 end

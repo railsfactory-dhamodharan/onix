@@ -3,12 +3,14 @@
 module ONIX
   class WorkIdentifier
     include ROXML
+    extend ONIX::ListWriter
     
     xml_name "WorkIdentifier"
     
     xml_reader :work_id_type, :from => "WorkIDType", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor :id_type_name, :from => "IDTypeName"
     xml_accessor :id_value, :from => "IDValue"
+    list_writer :work_id_type, 16
     
     def initialize(options = {})
       options.symbolize_keys!
@@ -17,12 +19,5 @@ module ONIX
       @id_value = options[:id_value]
     end
     
-    def work_id_type=(new_work_id_type)
-      if new_work_id_type.nil? || ::ONIX::Lists.list(16).keys.include?(new_work_id_type)
-        @work_id_type = new_work_id_type
-      else
-        raise "Invalid WorkIDType #{new_work_id_type}"
-      end
-    end
   end
 end
