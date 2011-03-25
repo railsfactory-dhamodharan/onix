@@ -12,7 +12,7 @@ module ONIX
         if value.nil? || ONIX::Lists.list(options[:list]).keys.include?(value)
           self.instance_variable_set("@#{name}", value)
         else
-          raise ArgumentError, "Invalid #{name} value: #{value}"
+          raise ArgumentError, "Invalid #{("_" + name.to_s).downcase.gsub!(/_(.)/) { $1.upcase }} '#{value}' -- Refer to ONIX Code List #{options[:list]}"
         end
       end
     end
