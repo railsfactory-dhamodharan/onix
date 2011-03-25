@@ -10,7 +10,7 @@ module ONIX
 
     xml_reader :relation_code, :from => "RelationCode", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_reader :product_identifiers, :from => "ProductIdentifier", :as => [ONIX::ProductIdentifier]
-    list_writer :relation_code, 51
+    list_writer :relation_code, :list => 51
     
     def initialize(options = {})
       options.symbolize_keys!

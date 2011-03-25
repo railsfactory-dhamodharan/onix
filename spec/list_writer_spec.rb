@@ -11,7 +11,7 @@ describe ONIX::ListWriter do
       
       xml_name "FakeEntity"
       xml_reader :series_id_type, :from => "SeriesIDType", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
-      list_writer :series_id_type, 13
+      list_writer :series_id_type, :list => 13
       
       def initialize(options = {})
         self.series_id_type = options[:series_id_type]

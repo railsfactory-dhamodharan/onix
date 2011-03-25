@@ -10,7 +10,7 @@ module ONIX
     xml_reader :work_id_type, :from => "WorkIDType", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor :id_type_name, :from => "IDTypeName"
     xml_accessor :id_value, :from => "IDValue"
-    list_writer :work_id_type, 16
+    list_writer :work_id_type, :list => 16
     
     def initialize(options = {})
       options.symbolize_keys!
