@@ -8,7 +8,7 @@ module ONIX
         if value.nil? || ONIX::Lists.list(digit).keys.include?(value)
           self.instance_variable_set("@#{name}", value)
         else
-          raise "Invalid #{name} value: #{value}"
+          raise ArgumentError, "Invalid #{name} value: #{value}"
         end
       end
     end

@@ -84,7 +84,7 @@ module ONIX
         @product_form = "DG" unless new_value.nil?
         @epub_type = new_value
       else
-        raise "Invalid EpubType #{new_value}"
+        raise ArgumentError, "Invalid EpubType value: #{new_value}"
       end
     end
   end

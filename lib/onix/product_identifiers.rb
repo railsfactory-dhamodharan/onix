@@ -36,7 +36,7 @@ module ONIX
           @product_identifiers << value if value.is_a?(ONIX::ProductIdentifier)
         end
       else
-        raise "Invalid ProductIdentifier #{values.inspect}"
+        raise ArgumentError, "Invalid ProductIdentifier value: #{values.inspect}"
       end
     end
 
