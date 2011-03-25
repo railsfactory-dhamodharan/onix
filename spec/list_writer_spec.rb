@@ -10,7 +10,7 @@ describe ONIX::ListWriter do
       extend ONIX::ListWriter
       
       xml_name "FakeEntity"
-      xml_reader :series_id_type, :from => "SeriesIdType", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
+      xml_reader :series_id_type, :from => "SeriesIDType", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
       list_writer :series_id_type, 13
       
       def initialize(options = {})
@@ -34,7 +34,7 @@ describe ONIX::ListWriter do
   it "should provide write access to first level attribute" do
     fake = ONIX::FakeEntity.new(:series_id_type => 3)
     fake.series_id_type.should eql(3)
-    fake.to_xml.to_s.include?("<SeriesIdType>03</SeriesIdType>").should be_true
+    fake.to_xml.to_s.include?("<SeriesIDType>03</SeriesIDType>").should be_true
   end
   
   it "should raise error writing value not in list" do
