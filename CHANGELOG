@@ -1,3 +1,9 @@
+v0.8.9 (24 March 2011)
+- Add RelatedProduct composite (PR.23.7 - PR.23.33)
+- Create ProductIdentifiers module
+- Create ListWriter module
+- WARNING: Set methods product_identifier, product_identifier_set removed
+
 v0.8.8 (15 March 2011)
 - Format EpubType value as 3-digit, padded number
 
