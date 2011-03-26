@@ -41,5 +41,12 @@ describe ONIX::WorkIdentifier do
     lambda {t.work_id_type = 999}.should raise_error
     lambda {ONIX::WorkIdentifier.new(:work_id_type => 999)}.should raise_error
   end
+  
+  it "should properly initialize attributes when calling new" do
+    t = ONIX::WorkIdentifier.new(:work_id_type => 1, :id_value => "value", :id_type_name => "name")
+    t.work_id_type.should eql(1)
+    t.id_value.should eql("value")
+    t.id_type_name.should eql("name")
+  end
 
 end
