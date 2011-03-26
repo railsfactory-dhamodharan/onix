@@ -16,7 +16,7 @@ module ONIX
     def initialize_attributes(options)
       options.symbolize_keys!
       attributes.each do |attribute|
-        self.send("#{attribute}=", options[attribute.to_sym])
+        self.send("#{attribute}=", options[attribute.to_sym]) if options[attribute.to_sym]
       end
     end
     
