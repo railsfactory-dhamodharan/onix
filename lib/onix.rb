@@ -52,14 +52,17 @@ module ONIX
   end
 end
 
+# helper modules
+require File.join(File.dirname(__FILE__), "onix", "list_writer")
+require File.join(File.dirname(__FILE__), "onix", "inflector")
+require File.join(File.dirname(__FILE__), "onix", "product_identifiers")
+
 # core files
 # - ordering is important, classes need to be defined before any
 #   other class can use them
-require File.join(File.dirname(__FILE__), "onix", "list_writer")
 require File.join(File.dirname(__FILE__), "onix", "sender_identifier")
 require File.join(File.dirname(__FILE__), "onix", "addressee_identifier")
 require File.join(File.dirname(__FILE__), "onix", "header")
-require File.join(File.dirname(__FILE__), "onix", "product_identifiers")
 require File.join(File.dirname(__FILE__), "onix", "product_identifier")
 require File.join(File.dirname(__FILE__), "onix", "series_identifier")
 require File.join(File.dirname(__FILE__), "onix", "series")

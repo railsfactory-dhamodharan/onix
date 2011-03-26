@@ -24,14 +24,20 @@ describe ONIX::ProductIdentifier do
   end
 
   it "should provide write access to first level attributes" do
-    id = ONIX::ProductIdentifier.new
+    id = ONIX::ProductIdentifier.new(:product_id_type => 1, :id_value => "TESTING")
+    id.to_xml.to_s.include?("<ProductIDType>01</ProductIDType>").should be_true
+    id.to_xml.to_s.include?("<IDValue>TESTING</IDValue>").should be_true
 
     id.product_id_type = 2
     id.to_xml.to_s.include?("<ProductIDType>02</ProductIDType>").should be_true
 
     id.id_value = "James"
     id.to_xml.to_s.include?("<IDValue>James</IDValue>").should be_true
-
+  end
+  
+  it "should raise error when writing invalid product_id_type" do
+    id = ONIX::ProductIdentifier.new
+    lambda {id.product_id_type = 999}.should raise_error
   end
 
 end
