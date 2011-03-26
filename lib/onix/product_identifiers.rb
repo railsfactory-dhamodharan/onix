@@ -12,10 +12,10 @@ module ONIX
     
     ACCESSOR_METHODS.each do |name, digit|
       define_method(name) do
-        identifier(digit).andand.id_value
+        find(digit).andand.id_value
       end
       define_method("#{name}=") do |value|
-        identifier_set(digit, value)
+        set(digit, value)
       end
     end
     
@@ -40,19 +40,26 @@ module ONIX
     end
 
     # find the ProductIdentifier matching a particular type
-    def identifier(type)
-      raise NoMethodError, "NoMethodError : Must call initialize_product_identifiers first" unless defined?(@product_identifiers)
-      @product_identifiers.find { |obj| obj.product_id_type == type }
+    def find(options = {})
+      raise NoMethodError, "Must call initialize_product_identifiers first" unless defined?(@product_identifiers)
+      
+      # use default find 'product_id_type' if implied
+      options = {:product_id_type => options} unless options.is_a?(Hash)
+      
+      # test find parameters
+      attribute, value = options.first
+      raise ArgumentError, "Find method passed unknown attribute '#{attribute}'" unless ONIX::ProductIdentifier.new.attributes.include?(attribute.to_s)
+      
+      @product_identifiers.find { |obj| obj.send(attribute) == value }
     end
 
     # set the value of a particular ProductIdentifier (found by type)
-    def identifier_set(type, value)
-      obj = identifier(type)
+    def set(type, value)
+      obj = find(type)
 
       # create a new product identifier object if we necessary
       if obj.nil?
-        obj = ONIX::ProductIdentifier.new
-        obj.product_id_type = type
+        obj = ONIX::ProductIdentifier.new(:product_id_type => type)
         @product_identifiers << obj
       end
 
