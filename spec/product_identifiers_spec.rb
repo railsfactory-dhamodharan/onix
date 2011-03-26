@@ -8,12 +8,15 @@ describe ONIX::ProductIdentifiers do
     class FakeEntity
       include ROXML
       include ONIX::ProductIdentifiers
+      include ONIX::Inflector
       
       xml_name "FakeEntity"
       xml_reader :product_identifiers, :from => "ProductIdentifier", :as => [ONIX::ProductIdentifier]
       
       def initialize(options = {})
-        self.initialize_product_identifiers(options)
+        # Must initialize arrays prior to attributes
+        initialize_product_identifiers(options) # @product_identifiers array
+        initialize_attributes(options)
       end
     end
   end

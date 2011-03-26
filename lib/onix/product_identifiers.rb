@@ -5,10 +5,9 @@ module ONIX
     ACCESSOR_METHODS = {:proprietary_id => 1, :ean => 3, :isbn10 => 2, :isbn13 => 15, :isbn => 15, :lccn => 13}
     
     def initialize_product_identifiers(options)
-      @product_identifiers ||= []
-      ACCESSOR_METHODS.keys.push(:product_identifiers).each do |name|
-        self.send("#{name}=", options[name]) if options[name]
-      end
+      self.product_identifiers = options[:product_identifiers]
+      # To initialize accessor methods, class in which this module is included
+      # must also include Inflector and call initialize_attributes
     end
     
     ACCESSOR_METHODS.each do |name, digit|
@@ -42,6 +41,7 @@ module ONIX
 
     # find the ProductIdentifier matching a particular type
     def identifier(type)
+      raise NoMethodError, "NoMethodError : Must call initialize_product_identifiers first" unless defined?(@product_identifiers)
       @product_identifiers.find { |obj| obj.product_id_type == type }
     end
 

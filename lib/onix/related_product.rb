@@ -5,6 +5,7 @@ module ONIX
     include ROXML
     include ONIX::ProductIdentifiers
     extend ONIX::ListWriter
+    include ONIX::Inflector
     
     xml_name "RelatedProduct"
 
@@ -13,9 +14,9 @@ module ONIX
     list_writer :relation_code, :list => 51
     
     def initialize(options = {})
-      options.symbolize_keys!
-      self.relation_code = options[:relation_code]
-      self.initialize_product_identifiers(options) # Must be called to setup @product_identifiers array
+      # Must initialize arrays prior to attributes
+      initialize_product_identifiers(options) # @product_identifiers array
+      initialize_attributes(options)
     end
     
   end
