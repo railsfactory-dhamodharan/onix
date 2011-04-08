@@ -48,6 +48,10 @@ module ONIX
         end
       end
     end
+
+    def self.space_separated
+      lambda { |val| val.join(" ")  if val }
+    end
   end
 end
 
@@ -80,6 +84,8 @@ require "onix/publisher"
 require "onix/other_text"
 require "onix/media_file"
 require "onix/sales_restriction"
+require "onix/sales_rights"
+require "onix/not_for_sale"
 require "onix/stock"
 require "onix/discount_coded"
 require "onix/price"
