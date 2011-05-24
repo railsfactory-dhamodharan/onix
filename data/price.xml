@@ -2,4 +2,6 @@
 <Price>
   <PriceTypeCode>02</PriceTypeCode>
   <PriceAmount>7.5</PriceAmount>
+  <PriceEffectiveFrom>19990101</PriceEffectiveFrom>
+  <PriceEffectiveUntil>20001231</PriceEffectiveUntil>
 </Price>

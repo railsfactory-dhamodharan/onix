@@ -16,5 +16,7 @@ module ONIX
     xml_accessor :price_status, :from => "PriceStatus", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor :price_amount, :from => "PriceAmount", :as => BigDecimal, :to_xml => ONIX::Formatters.decimal
     xml_accessor :currency_code, :from => "CurrencyCode"
+    xml_accessor :price_effective_from, :from => "PriceEffectiveFrom", :to_xml => ONIX::Formatters.yyyymmdd
+    xml_accessor :price_effective_until, :from => "PriceEffectiveUntil", :to_xml => ONIX::Formatters.yyyymmdd
   end
 end
