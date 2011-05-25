@@ -20,6 +20,7 @@
     <ProductIDType>15</ProductIDType>
     <IDValue>ISBN13</IDValue>
   </ProductIdentifier>
+  <SeriesIDType>01</SeriesIDType>
   <WorkIdentifier>
     <WorkIDType>01</WorkIDType>
     <IDValue>WD_PROPRIETARY_ID</IDValue>
