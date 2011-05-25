@@ -21,7 +21,7 @@ describe ONIX::ListWriter do
   
   before :each do
     data_path = File.join(File.dirname(__FILE__),"..","data")
-    file1 = File.join(data_path, "fake_entity_for_lists.xml")
+    file1 = File.join(data_path, "fake_entity.xml")
     @doc = Nokogiri::XML::Document.parse(File.read(file1))
     @root = @doc.root
   end
