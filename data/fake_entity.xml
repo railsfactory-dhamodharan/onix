@@ -33,4 +33,14 @@
     <WorkIDType>15</WorkIDType>
     <IDValue>WD_ISBN13</IDValue>
   </WorkIdentifier>
+  <DiscountCoded>
+    <DiscountCodeType>01</DiscountCodeType>
+    <DiscountCodeTypeName>BIC Scheme</DiscountCodeTypeName>
+    <DiscountCode>BIC_CODE</DiscountCode>
+  </DiscountCoded>
+  <DiscountCoded>
+    <DiscountCodeType>02</DiscountCodeType>
+    <DiscountCodeTypeName>Proprietary Scheme</DiscountCodeTypeName>
+    <DiscountCode>PROPRIETARY_CODE</DiscountCode>
+  </DiscountCoded>
 </FakeEntity>

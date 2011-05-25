@@ -57,6 +57,7 @@ require File.join(File.dirname(__FILE__), "onix", "list_writer")
 require File.join(File.dirname(__FILE__), "onix", "inflector")
 require File.join(File.dirname(__FILE__), "onix", "product_identifiers")
 require File.join(File.dirname(__FILE__), "onix", "work_identifiers")
+require File.join(File.dirname(__FILE__), "onix", "discount_codeds")
 
 # core files
 # - ordering is important, classes need to be defined before any
@@ -81,6 +82,7 @@ require File.join(File.dirname(__FILE__), "onix", "other_text")
 require File.join(File.dirname(__FILE__), "onix", "media_file")
 require File.join(File.dirname(__FILE__), "onix", "sales_restriction")
 require File.join(File.dirname(__FILE__), "onix", "stock")
+require File.join(File.dirname(__FILE__), "onix", "discount_coded")
 require File.join(File.dirname(__FILE__), "onix", "price")
 require File.join(File.dirname(__FILE__), "onix", "related_product")
 require File.join(File.dirname(__FILE__), "onix", "supply_detail")
