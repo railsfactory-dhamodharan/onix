@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Price>
   <PriceTypeCode>02</PriceTypeCode>
+  <DiscountPercent>45</DiscountPercent>
   <PriceAmount>7.5</PriceAmount>
   <PriceEffectiveFrom>19990101</PriceEffectiveFrom>
   <PriceEffectiveUntil>20001231</PriceEffectiveUntil>
