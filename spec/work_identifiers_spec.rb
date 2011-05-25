@@ -19,15 +19,15 @@ describe ONIX::WorkIdentifiers do
   end
   
   before :each do
-    @fake1 = ONIX::FakeWorkEntity.new(:isbn => 123456)
+    @fake = ONIX::FakeWorkEntity.new(:isbn => 123456)
     data_path = File.join(File.dirname(__FILE__),"..","data")
-    file1 = File.join(data_path, "fake_entity.xml")
-    @doc = Nokogiri::XML::Document.parse(File.read(file1))
+    file = File.join(data_path, "fake_entity.xml")
+    @doc = Nokogiri::XML::Document.parse(File.read(file))
     @root = @doc.root
   end
   
   it "should instantiate work identifiers array" do
-    @fake1.work_identifiers.should be_a(Array)
+    @fake.work_identifiers.should be_a(Array)
   end
   
   it "should provide read access to work identifiers" do
