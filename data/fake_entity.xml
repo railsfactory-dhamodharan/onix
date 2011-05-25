@@ -20,4 +20,16 @@
     <ProductIDType>15</ProductIDType>
     <IDValue>ISBN13</IDValue>
   </ProductIdentifier>
+  <WorkIdentifier>
+    <WorkIDType>01</WorkIDType>
+    <IDValue>WD_PROPRIETARY_ID</IDValue>
+  </WorkIdentifier>
+  <WorkIdentifier>
+    <WorkIDType>02</WorkIDType>
+    <IDValue>WD_ISBN10</IDValue>
+  </WorkIdentifier>
+  <WorkIdentifier>
+    <WorkIDType>15</WorkIDType>
+    <IDValue>WD_ISBN13</IDValue>
+  </WorkIdentifier>
 </FakeEntity>

@@ -56,6 +56,7 @@ end
 require File.join(File.dirname(__FILE__), "onix", "list_writer")
 require File.join(File.dirname(__FILE__), "onix", "inflector")
 require File.join(File.dirname(__FILE__), "onix", "product_identifiers")
+require File.join(File.dirname(__FILE__), "onix", "work_identifiers")
 
 # core files
 # - ordering is important, classes need to be defined before any

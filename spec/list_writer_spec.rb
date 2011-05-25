@@ -5,11 +5,11 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 describe ONIX::ListWriter do
   
   module ONIX
-    class FakeEntity
+    class FakeListEntity
       include ROXML
       extend ONIX::ListWriter
       
-      xml_name "FakeEntity"
+      xml_name "FakeListEntity"
       xml_reader :series_id_type, :from => "SeriesIDType", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
       list_writer :series_id_type, :list => 13
       
@@ -27,20 +27,20 @@ describe ONIX::ListWriter do
   end
   
   it "should provide read access to first level attribute" do
-    fake = ONIX::FakeEntity.from_xml(@root.to_s)
+    fake = ONIX::FakeListEntity.from_xml(@root.to_s)
     fake.series_id_type.should eql(1)
   end
   
   it "should provide write access to first level attribute" do
-    fake = ONIX::FakeEntity.new(:series_id_type => 3)
+    fake = ONIX::FakeListEntity.new(:series_id_type => 3)
     fake.series_id_type.should eql(3)
     fake.to_xml.to_s.include?("<SeriesIDType>03</SeriesIDType>").should be_true
   end
   
   it "should raise error writing value not in list" do
-    fake = ONIX::FakeEntity.new
+    fake = ONIX::FakeListEntity.new
     lambda {fake.series_id_type = 100}.should raise_error
-    lambda {ONIX::FakeEntity.new(:series_id_type => 100)}.should raise_error
+    lambda {ONIX::FakeListEntity.new(:series_id_type => 100)}.should raise_error
   end
 
 end
