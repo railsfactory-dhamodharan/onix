@@ -39,8 +39,6 @@ module ONIX
       obj.id_value = value
     end
     
-    private
-
     def work_identifiers=(values)
       values = [values] if values.nil? || values.is_a?(ONIX::WorkIdentifier)
       if values.is_a?(Array)
@@ -54,6 +52,8 @@ module ONIX
         raise ArgumentError, "Invalid WorkIdentifier value: #{values.inspect}"
       end
     end
+
+    private
 
     def set_type_options(options = {})
       if options.is_a?(Fixnum)
