@@ -1,3 +1,9 @@
+v0.8.10 (25 May 2011)
+- Add DiscountCoded to Price composite
+- Add DiscountPercent to Price composite
+- Add PriceEffectiveFrom, PriceEffectiveUntil to Price composite
+- Create WorkIdentifiers module
+
 v0.8.9 (24 March 2011)
 - Add RelatedProduct composite (PR.23.7 - PR.23.33)
 - Create ProductIdentifiers module
