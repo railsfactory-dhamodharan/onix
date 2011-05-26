@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Price>
   <PriceTypeCode>02</PriceTypeCode>
+  <DiscountCoded>
+    <DiscountCodeType>01</DiscountCodeType>
+    <DiscountCodeTypeName>britishco</DiscountCodeTypeName>
+    <DiscountCode>999ZZZ</DiscountCode>
+  </DiscountCoded>
+  <DiscountCoded>
+    <DiscountCodeType>02</DiscountCodeType>
+    <DiscountCodeTypeName>ingram</DiscountCodeTypeName>
+    <DiscountCode>XYZ987</DiscountCode>
+  </DiscountCoded>
+  <DiscountCoded>
+    <DiscountCodeType>02</DiscountCodeType>
+    <DiscountCodeTypeName>bakertaylor</DiscountCodeTypeName>
+    <DiscountCode>ABC123</DiscountCode>
+  </DiscountCoded>
   <DiscountPercent>45</DiscountPercent>
   <PriceAmount>7.5</PriceAmount>
   <PriceEffectiveFrom>19990101</PriceEffectiveFrom>

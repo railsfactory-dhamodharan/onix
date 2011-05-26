@@ -38,8 +38,6 @@ module ONIX
       obj.discount_code = value
     end
     
-    private
-
     def discount_codeds=(values)
       values = [values] if values.nil? || values.is_a?(ONIX::DiscountCoded)
       if values.is_a?(Array)
@@ -53,6 +51,8 @@ module ONIX
         raise ArgumentError, "Invalid DiscountCoded value: #{values.inspect}"
       end
     end
+
+    private
 
     def set_type_options(options = {})
       if options.is_a?(Fixnum)
