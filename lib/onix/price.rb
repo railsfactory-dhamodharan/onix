@@ -21,7 +21,13 @@ module ONIX
     xml_accessor :price_amount, :from => "PriceAmount", :as => BigDecimal, :to_xml => ONIX::Formatters.decimal
     xml_accessor :currency_code, :from => "CurrencyCode"
     xml_reader :country_codes, :from => "CountryCode", :as => []
-    list_writer :country_codes, :list => 91
+    list_writer :country_codes, :list => 91, :as => []
+    xml_reader :territory, :from => "Territory"
+    list_writer :territory, :list => 49, :as => String
+    xml_reader :country_excluded, :from => "CountryExcluded"
+    list_writer :country_excluded, :list => 91, :as => String
+    xml_reader :territory_excluded, :from => "TerritoryExcluded"
+    list_writer :territory_excluded, :list => 49, :as => String
     xml_accessor :price_effective_from, :from => "PriceEffectiveFrom", :to_xml => ONIX::Formatters.yyyymmdd
     xml_accessor :price_effective_until, :from => "PriceEffectiveUntil", :to_xml => ONIX::Formatters.yyyymmdd
 

@@ -26,6 +26,9 @@ describe ONIX::Price do
     p.price_effective_until.should eql("20001231")
     p.country_codes.should be_a(Array)
     p.country_codes[0].should eql("US")
+    p.territory.should eql("WORLD")
+    p.country_excluded.should eql("AD AE")
+    p.territory_excluded.should eql("AU-CT AU-NS")
   end
 
   it "should provide read access to discount_codeds" do
@@ -60,6 +63,15 @@ describe ONIX::Price do
     p.country_codes = ["AD", "AE"]
     p.to_xml.to_s.include?("<CountryCode>AD</CountryCode>").should be_true
     p.to_xml.to_s.include?("<CountryCode>AE</CountryCode>").should be_true
+
+    p.territory = "AU-CT AU-NS"
+    p.to_xml.to_s.include?("<Territory>AU-CT AU-NS</Territory>").should be_true
+
+    p.country_excluded = "AD AE"
+    p.to_xml.to_s.include?("<CountryExcluded>AD AE</CountryExcluded>").should be_true
+
+    p.territory_excluded = "AU-CT AU-NS"
+    p.to_xml.to_s.include?("<TerritoryExcluded>AU-CT AU-NS</TerritoryExcluded>").should be_true
 
     p.price_effective_from = Date.civil(1999,1,1)
     p.to_xml.to_s.include?("<PriceEffectiveFrom>19990101</PriceEffectiveFrom>").should be_true

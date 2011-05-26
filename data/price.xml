@@ -20,6 +20,9 @@
   <PriceAmount>7.5</PriceAmount>
   <CountryCode>US</CountryCode>
   <CountryCode>TZ</CountryCode>
+  <Territory>WORLD</Territory>
+  <CountryExcluded>AD AE</CountryExcluded>
+  <TerritoryExcluded>AU-CT AU-NS</TerritoryExcluded>
   <PriceEffectiveFrom>19990101</PriceEffectiveFrom>
   <PriceEffectiveUntil>20001231</PriceEffectiveUntil>
 </Price>
