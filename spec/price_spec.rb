@@ -24,6 +24,8 @@ describe ONIX::Price do
     p.price_amount.should eql(BigDecimal.new("7.5"))
     p.price_effective_from.should eql("19990101")
     p.price_effective_until.should eql("20001231")
+    p.country_codes.should be_a(Array)
+    p.country_codes[0].should eql("US")
   end
 
   it "should provide read access to discount_codeds" do
@@ -54,6 +56,10 @@ describe ONIX::Price do
 
     p.price_amount = BigDecimal.new("7.5")
     p.to_xml.to_s.include?("<PriceAmount>7.5</PriceAmount>").should be_true
+
+    p.country_codes = ["AD", "AE"]
+    p.to_xml.to_s.include?("<CountryCode>AD</CountryCode>").should be_true
+    p.to_xml.to_s.include?("<CountryCode>AE</CountryCode>").should be_true
 
     p.price_effective_from = Date.civil(1999,1,1)
     p.to_xml.to_s.include?("<PriceEffectiveFrom>19990101</PriceEffectiveFrom>").should be_true

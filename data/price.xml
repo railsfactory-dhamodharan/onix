@@ -18,6 +18,8 @@
   </DiscountCoded>
   <DiscountPercent>45</DiscountPercent>
   <PriceAmount>7.5</PriceAmount>
+  <CountryCode>US</CountryCode>
+  <CountryCode>TZ</CountryCode>
   <PriceEffectiveFrom>19990101</PriceEffectiveFrom>
   <PriceEffectiveUntil>20001231</PriceEffectiveUntil>
 </Price>

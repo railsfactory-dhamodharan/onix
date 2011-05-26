@@ -4,6 +4,7 @@ module ONIX
   class Price
     include ROXML
     include ONIX::DiscountCodeds
+    extend ONIX::ListWriter
 
     xml_name "Price"
 
@@ -19,11 +20,14 @@ module ONIX
     xml_accessor :price_status, :from => "PriceStatus", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor :price_amount, :from => "PriceAmount", :as => BigDecimal, :to_xml => ONIX::Formatters.decimal
     xml_accessor :currency_code, :from => "CurrencyCode"
+    xml_reader :country_codes, :from => "CountryCode", :as => []
+    list_writer :country_codes, :list => 91
     xml_accessor :price_effective_from, :from => "PriceEffectiveFrom", :to_xml => ONIX::Formatters.yyyymmdd
     xml_accessor :price_effective_until, :from => "PriceEffectiveUntil", :to_xml => ONIX::Formatters.yyyymmdd
 
     def initialize(options = {})
       initialize_discount_codeds(options) # @discount_codeds array
+      @country_codes = []
     end
   end
 end
