@@ -1,3 +1,7 @@
+v0.8.11 (27 May 2011)
+- Add Territory, CountryExcluded, TerritoryExcluded to Price composite
+- Add CountryCode to Price composite
+
 v0.8.10 (25 May 2011)
 - Add DiscountCoded to Price composite
 - Add DiscountPercent to Price composite
