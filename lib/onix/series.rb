@@ -15,7 +15,7 @@ module ONIX
 
     # retrieve the proprietary series ID
     def proprietary_series_id
-      series_identifier(1).andand.id_value
+      series_identifier(1).try(:id_value)
     end
 
     # set a new proprietary series ID
@@ -25,7 +25,7 @@ module ONIX
 
     # retrieve the issn
     def issn
-      series_identifier(2).andand.id_value
+      series_identifier(2).try(:id_value)
     end
 
     # set a new issn

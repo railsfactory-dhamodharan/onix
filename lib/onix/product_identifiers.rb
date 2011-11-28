@@ -12,7 +12,7 @@ module ONIX
     
     ACCESSOR_METHODS.each do |name, digit|
       define_method(name) do
-        find(digit).andand.id_value
+        find(digit).try(:id_value)
       end
       define_method("#{name}=") do |value|
         set(digit, value)
