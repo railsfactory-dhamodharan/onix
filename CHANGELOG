@@ -1,3 +1,17 @@
+v0.8.12 (28 November 2011)
+- Cherry pick yob's commits from 13 April to 7 November:
+  - Relax activesupport dependency to work with rails 3 or 3.1
+  - Switch back to the vanilla roxml gem
+  - Clarify comments explaining encoding behaviour
+  - Add options hash to ONIX::Reader. Only option at this stage is :encoding,
+    which allows the user to override the assumed encoding of the input XML
+  - API change
+- Skipped yob's implementation of discount_coded
+  - It has already been addressed in this fork
+	  NB: differing syntax discounts_coded v. discount_codeds (this fork uses latter)
+- Add SalesRights (thanks joseph), with ordering adjustment
+- Replace andand with try
+
 v0.8.11 (27 May 2011)
 - Add Territory, CountryExcluded, TerritoryExcluded to Price composite
 - Add CountryCode to Price composite
