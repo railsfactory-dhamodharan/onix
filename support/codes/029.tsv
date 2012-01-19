@@ -14,3 +14,7 @@
 14	Ausbildungsberuf	Occupation: codelist for vocational training materials, maintained by VdS Bildungsmedien eV, the German association of educational media publishers
 15	Suomalainen kouluasteluokitus	Finnish school or college level
 16	CBG age guidance	UK Publishers Association, Children’s Book Group, coded indication of intended reader age, carried on book covers
+17	Nielsen Book audience code	Audience code used in Nielsen Book Services.
+18	AVI (revised)	Code list used to specify reading levels for children’s books, used in the Netherlands – see also code 09.
+19	Lexile measure	Lexile measure (the measure in <ComplexityCode> may optionally be prefixed by the Lexile code). Examples might be ‘880L’, ‘AD0L’ or ‘HL600L’.
+20	Fry Readability score	Fry readability metric based on number of sentences and syllables per 100 words. Expressed as a number from 1 to 15 in <AudienceCodeValue>.

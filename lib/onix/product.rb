@@ -27,6 +27,7 @@ module ONIX
     xml_accessor :bic_main_subject, :from => "BICMainSubject"
     xml_accessor :subjects, :from => "Subject", :as => [ONIX::Subject]
     xml_accessor :audience_code, :from => "AudienceCode", :to_xml => ONIX::Formatters.two_digit
+    xml_accessor :audiences, :from => "Audience", :as => [ONIX::Audience]
     xml_accessor :audience_ranges, :from => "AudienceRange", :as => [ONIX::AudienceRange]
     xml_accessor :complexities, :from => "Complexity", :as => [ONIX::Complexity]
     xml_accessor :text, :from => "OtherText", :as => [ONIX::OtherText]
