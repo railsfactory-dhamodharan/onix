@@ -28,6 +28,7 @@ module ONIX
     xml_accessor :subjects, :from => "Subject", :as => [ONIX::Subject]
     xml_accessor :audience_code, :from => "AudienceCode", :to_xml => ONIX::Formatters.two_digit
     xml_accessor :audience_ranges, :from => "AudienceRange", :as => [ONIX::AudienceRange]
+    xml_accessor :complexities, :from => "Complexity", :as => [ONIX::Complexity]
     xml_accessor :text, :from => "OtherText", :as => [ONIX::OtherText]
     xml_accessor :media_files, :from => "MediaFile", :as => [ONIX::MediaFile]
     xml_accessor :imprints, :from => "Imprint", :as => [ONIX::Imprint]
@@ -69,6 +70,7 @@ module ONIX
       self.websites = []
       self.subjects = []
       self.audience_ranges = []
+      self.complexities = []
       self.text = []
       self.languages = []
       self.media_files = []
