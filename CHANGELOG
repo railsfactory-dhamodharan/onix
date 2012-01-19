@@ -1,3 +1,6 @@
+v0.8.13 (18 January 2012)
+- Add Complexity composite
+
 v0.8.12 (28 November 2011)
 - Cherry pick yob's commits from 13 April to 7 November:
   - Relax activesupport dependency to work with rails 3 or 3.1
