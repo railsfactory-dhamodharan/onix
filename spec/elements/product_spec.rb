@@ -35,6 +35,11 @@ describe ONIX::Product do
     product.product_identifiers.size.should eql(3)
   end
 
+  it "should provide read access to sets" do
+    product = ONIX::Product.from_xml(@product_node.to_s)
+    product.sets.size.should eql(1)
+  end
+
   it "should provide read access to titles" do
     product = ONIX::Product.from_xml(@product_node.to_s)
     product.titles.size.should eql(1)
@@ -81,6 +86,12 @@ describe ONIX::Product do
     product.to_xml.to_s.include?("<YearFirstPublished>1998</YearFirstPublished>").should be_true
   end
 
+  it "should provide write access to sets" do
+    product = ONIX::Product.new
+    set = ONIX::Set.new
+    lambda { product.sets << set }.should change(product.sets, :size).by(1)
+  end
+
   it "should correctly from_xml files that have an invalid publication date" do
     file = find_data_file("product_invalid_pubdate.xml")
     product = ONIX::Product.from_xml(File.read(file))
@@ -88,7 +99,6 @@ describe ONIX::Product do
     product.bic_main_subject.should eql("VXFC1")
     product.publication_date.should be_nil
   end
-
 
   it "should load an interpretation" do
     product = ONIX::Product.new

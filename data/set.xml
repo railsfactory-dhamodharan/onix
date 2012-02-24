@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Set>
+  <ProductIdentifier>
+    <ProductIDType>01</ProductIDType>
+    <IDValue>9999</IDValue>
+  </ProductIdentifier>
+  <ProductIdentifier>
+    <ProductIDType>15</ProductIDType>
+    <IDValue>9780194351898</IDValue>
+  </ProductIdentifier>
+  <TitleOfSet>THE SET NAME</TitleOfSet>
+</Set>
+
