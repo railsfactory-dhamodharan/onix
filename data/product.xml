@@ -25,6 +25,10 @@
     <TitleType>01</TitleType>
     <TitleText>OXFORD PICTURE DICTIONARY CHINESE</TitleText>
   </Title>
+  <WorkIdentifier>
+    <WorkIDType>01</WorkIDType>
+    <IDValue>ABC123</IDValue>
+  </WorkIdentifier>
   <Website>
     <WebsiteLink>http://www.oup.com.au/searchbuy/product.asp?ISBN=9780194351898</WebsiteLink>
   </Website>

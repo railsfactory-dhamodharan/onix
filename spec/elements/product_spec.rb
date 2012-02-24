@@ -45,6 +45,11 @@ describe ONIX::Product do
     product.titles.size.should eql(1)
   end
 
+  it "should provide read access to work_identifiers" do
+    product = ONIX::Product.from_xml(@product_node.to_s)
+    product.work_identifiers.size.should eql(1)
+  end
+
   it "should provide read access to subjects" do
     product = ONIX::Product.from_xml(@product_node.to_s)
     product.subjects.size.should eql(1)
@@ -90,6 +95,12 @@ describe ONIX::Product do
     product = ONIX::Product.new
     set = ONIX::Set.new
     lambda { product.sets << set }.should change(product.sets, :size).by(1)
+  end
+
+  it "should provide write access to work_identifiers" do
+    product = ONIX::Product.new
+    wid = ONIX::WorkIdentifier.new
+    lambda { product.work_identifiers << wid }.should change(product.work_identifiers, :size).by(1)
   end
 
   it "should correctly from_xml files that have an invalid publication date" do
