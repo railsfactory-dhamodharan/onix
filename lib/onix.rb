@@ -126,6 +126,7 @@ end
   "elements/publisher",
   "elements/other_text",
   "elements/media_file",
+  "elements/product_website",
   "elements/sales_restriction",
   "elements/sales_rights",
   "elements/not_for_sale",

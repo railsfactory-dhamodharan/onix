@@ -94,7 +94,7 @@ class ONIX::Product < ONIX::ProductBase
 
   # PR.16 Links to image/audio/video files
   onix_composite :media_files, ONIX::MediaFile
-  onix_composite :product_websites, ONIX::Website, :from => "ProductWebsite"
+  onix_composite :product_websites, ONIX::ProductWebsite, :from => "ProductWebsite"
 
   # PR.17 Prizes
   onix_composite :prizes, ONIX::Prize
