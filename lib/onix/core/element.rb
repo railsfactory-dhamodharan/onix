@@ -122,7 +122,7 @@ module ONIX
       xml_accessor("#{name}_code", options, &prep)
 
       define_method(name) do
-        send("#{name}_code").key
+        send("#{name}_code").try(:key)
       end
 
       define_method("#{name}=") do |val|
