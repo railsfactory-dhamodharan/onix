@@ -115,6 +115,7 @@ module ONIX
       end
       code_opts = options.slice(:length, :enforce)
       options.delete(:enforce)
+      options.delete(:length)
       prep = lambda { |value|
         ONIX::Code.new(list_number, value, code_opts)
       }
@@ -164,6 +165,7 @@ module ONIX
       end
       code_opts = options.slice(:length, :enforce)
       options.delete(:enforce)
+      options.delete(:length)
       prep = lambda { |values|
         if block_given?
           values = [values].flatten.collect { |v| blk.call(v) }

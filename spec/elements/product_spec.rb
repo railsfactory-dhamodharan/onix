@@ -141,4 +141,10 @@ describe ONIX::Product do
     product2.title.should eql("grimm's fairy tales")
   end
 
+  it "should write EpubType data as three digits if data is FixNum" do
+    product = ONIX::Product.new
+    product.epub_type = 1
+    product.to_xml.to_s.include?("<EpubType>001</EpubType>").should be_true
+  end
+
 end

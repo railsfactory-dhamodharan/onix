@@ -30,7 +30,7 @@ class ONIX::Product < ONIX::Element
   onix_composite :product_classifications, ONIX::ProductClassification
 
   # PR.4 Epublication
-  onix_code_from_list :epub_type, "EpubType", :list => 10
+  onix_code_from_list :epub_type, "EpubType", :list => 10, :length => 3
   xml_accessor :epub_type_version, "EpubTypeVersion"
   xml_accessor :epub_type_description, "EpubTypeDescription"
   onix_code_from_list :epub_format, "EpubFormat", :list => 11
