@@ -30,7 +30,7 @@ module ONIX
 
       if data.kind_of?(Fixnum)
         @key = data
-        pad_length = options[:length] || ["#{@list.size}".size, 2].max
+        pad_length = options[:length] || [@list.keys.first.size, 2].max
         @real_key = pad(data, pad_length)
       elsif data.match(/^\d+$/) && @list.keys.include?(data)
         @key = data.to_i
