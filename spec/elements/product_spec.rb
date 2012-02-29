@@ -22,6 +22,10 @@ describe ONIX::Product do
     product.publication_date.should eql(Date.civil(1998,9,1))
     product.year_first_published.should eql(1998)
 
+    # epublication detail
+    product.epub_type.should eql(1)
+    product.epub_type_version.should eql("2.1")
+
     # including ye olde, deprecated ones
     product.height.should eql(100)
     product.width.should eql(BigDecimal.new("200.5"))

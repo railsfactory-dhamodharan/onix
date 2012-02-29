@@ -31,15 +31,15 @@ class ONIX::Product < ONIX::Element
 
   # PR.4 Epublication
   onix_code_from_list :epub_type, "EpubType", :list => 10
-  xml_accessor :epub_type_version, "EpubTypeVersion"
-  xml_accessor :epub_type_description, "EpubTypeDescription"
+  xml_accessor :epub_type_version, :from => "EpubTypeVersion"
+  xml_accessor :epub_type_description, :from => "EpubTypeDescription"
   onix_code_from_list :epub_format, "EpubFormat", :list => 11
-  xml_accessor :epub_format_version, "EpubFormatVersion"
-  xml_accessor :epub_format_description, "EpubFormatDescription"
+  xml_accessor :epub_format_version, :from => "EpubFormatVersion"
+  xml_accessor :epub_format_description, :from => "EpubFormatDescription"
   onix_code_from_list :epub_source, "EpubSource", :list => 11
-  xml_accessor :epub_source_version, "EpubSourceVersion"
-  xml_accessor :epub_source_description, "EpubSourceDescription"
-  xml_accessor :epub_type_note, "EpubTypeNote"
+  xml_accessor :epub_source_version, :from => "EpubSourceVersion"
+  xml_accessor :epub_source_description, :from => "EpubSourceDescription"
+  xml_accessor :epub_type_note, :from => "EpubTypeNote"
 
   # PR.5 Series
   onix_composite :series, ONIX::Series

@@ -15,12 +15,12 @@ class ONIX::ProductBase < ONIX::Element
   onix_code_from_list :trade_category, "TradeCategory", :list => 12
   onix_code_from_list :product_content_type, "ProductContentType", :list => 81
   onix_code_from_list :epub_type, "EpubType", :list => 10
-  xml_accessor :epub_type_version, "EpubTypeVersion"
-  xml_accessor :epub_type_description, "EpubTypeDescription"
+  xml_accessor :epub_type_version, :from => "EpubTypeVersion"
+  xml_accessor :epub_type_description, :from => "EpubTypeDescription"
   onix_code_from_list :epub_format, "EpubFormat", :list => 11
-  xml_accessor :epub_format_version, "EpubFormatVersion"
-  xml_accessor :epub_format_description, "EpubFormatDescription"
-  xml_accessor :epub_type_note, "EpubTypeNote"
+  xml_accessor :epub_format_version, :from => "EpubFormatVersion"
+  xml_accessor :epub_format_description, :from => "EpubFormatDescription"
+  xml_accessor :epub_type_note, :from => "EpubTypeNote"
 
   # Extend this product instance with a module. Typically these modules
   # make it easier to read or write common values in the Product.
