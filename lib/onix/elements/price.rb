@@ -16,7 +16,7 @@ module ONIX
 
 
     onix_code_from_list :price_type_code, "PriceTypeCode", :list => 58
-    onix_code_from_list :price_type_qualifier, "PriceTypeQualifier", :list => 59
+    onix_code_from_list :price_qualifier, "PriceQualifier", :list => 59
     xml_accessor :price_type_description, :from => "PriceTypeDescription"
     onix_code_from_list :price_per, "PricePer", :list => 60
     xml_accessor :minimum_order_qty, :from => "MinimumOrderQuantity", :as => Fixnum
