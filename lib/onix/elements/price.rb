@@ -21,7 +21,7 @@ module ONIX
     onix_code_from_list :price_per, "PricePer", :list => 60
     xml_accessor :minimum_order_qty, :from => "MinimumOrderQuantity", :as => Fixnum
     onix_composite :batch_bonuses, ONIX::BatchBonus
-    xml_accessor :class_of_trade, :from => "ClassOfTradeCode"
+    xml_accessor :class_of_trade, :from => "ClassOfTrade"
     xml_accessor :bic_discount_group_code, :from => "BICDiscountGroupCode"
     onix_composite :discount_codeds, ONIX::DiscountCoded
     onix_decimal_accessor :discount_percentage, "DiscountPercentage"
