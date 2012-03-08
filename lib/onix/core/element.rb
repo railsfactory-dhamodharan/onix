@@ -9,6 +9,7 @@ module ONIX
     require 'active_support/core_ext/class'
 
     class_inheritable_accessor(:xml_array_accessors)
+    class_inheritable_accessor(:accessor_names)
 
     # An accessor to an array of element instances.
     #
@@ -121,6 +122,7 @@ module ONIX
       }
       options = options.merge(:from => tag_name)
       xml_accessor("#{name}_code", options, &prep)
+      self.accessor_names << name.to_s
 
       define_method(name) do
         send("#{name}_code").try(:key)
@@ -258,6 +260,8 @@ module ONIX
 
     def self.xml_accessor(*syms, &blk)
       options = syms.extract_options!
+      self.accessor_names ||= []
+      self.accessor_names << syms.first.to_s
       if options[:as] && options[:as].kind_of?(Array)
         self.xml_array_accessors ||= []
         self.xml_array_accessors << syms.first
@@ -267,7 +271,15 @@ module ONIX
     end
 
 
-    def initialize
+    def initialize(options = {})
+      options.stringify_keys!
+      if self.class.accessor_names
+        self.class.accessor_names.each { |name|
+          asgn = "#{name}="
+          raise "Can't assign #{name} for #{self.class} - accessor_names inheritance error?" unless respond_to?(asgn)
+          self.send(asgn, options[name]) if options[name]
+        }
+      end
       if self.class.xml_array_accessors
         self.class.xml_array_accessors.each { |name|
           asgn = "#{name}="
@@ -275,7 +287,11 @@ module ONIX
           self.send(asgn, [])
         }
       end
-      super
+    end
+
+
+    def attributes
+      self.class.accessor_names.inject({}) {|h,e| h[e] = send(e); h}
     end
 
   end
