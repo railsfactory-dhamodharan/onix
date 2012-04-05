@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContainedItem>
+  <ProductIdentifier>
+    <ProductIDType>01</ProductIDType>
+    <IDValue>9999</IDValue>
+  </ProductIdentifier>
+  <ProductIdentifier>
+    <ProductIDType>15</ProductIDType>
+    <IDValue>9780194351898</IDValue>
+  </ProductIdentifier>
+  <ProductForm>BB</ProductForm>
+  <ProductFormDetail>B206</ProductFormDetail>
+  <ItemQuantity>1</ItemQuantity>
+</ContainedItem>
+
